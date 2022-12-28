@@ -1,3 +1,4 @@
+import 'package:coffee_cup/features/text/coffee_text.dart';
 import 'package:flutter/material.dart';
 import 'package:manga_easy_themes/manga_easy_themes.dart';
 
@@ -16,10 +17,16 @@ class CoffeeCardTheme extends StatelessWidget {
     return GestureDetector(
       onTap: () => changeTheme(themes),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Card(
             shape: OutlineInputBorder(
-              borderSide: const BorderSide(color: Colors.grey, width: 4),
+              borderSide: BorderSide(
+                color: ThemeService().index == themes
+                    ? ThemeService.of.primaryColor
+                    : Colors.grey,
+                width: 4,
+              ),
               borderRadius: BorderRadius.circular(20),
             ),
             color: themeApp.backgroundColor,
@@ -40,16 +47,13 @@ class CoffeeCardTheme extends StatelessWidget {
                   ),
                   Container(
                     width: 65,
-                    height: 70,
+                    height: 50,
                     margin: const EdgeInsets.all(16),
                     decoration: BoxDecoration(
                       borderRadius: themeApp.borderRadius,
                       color: themeApp.selectText,
                     ),
                     child: Container(
-                      width: 65,
-                      height: 30,
-                      margin: const EdgeInsets.all(16),
                       decoration: BoxDecoration(
                         borderRadius: themeApp.borderRadius,
                         color: themeApp.selectColor,
@@ -80,10 +84,13 @@ class CoffeeCardTheme extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 5),
-          Text(
-            Themes.values[themes.index].title,
-            style: Theme.of(context).textTheme.titleLarge,
+          const SizedBox(height: 8),
+          Padding(
+            padding: const EdgeInsets.only(left: 4),
+            child: CoffeeText(
+              text: Themes.values[themes.index].title,
+              typography: CoffeeTypography.body,
+            ),
           )
         ],
       ),
