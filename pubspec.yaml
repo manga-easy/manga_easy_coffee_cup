@@ -12,7 +12,9 @@ dependencies:
   flutter:
     sdk: flutter
   manga_easy_themes:
-    path: ../manga_easy_themes
+    git: 
+      url: https://github.com/lucascardo12/manga_easy_themes.git
+      ref: 1.0.0
 
 dev_dependencies:
   flutter_test:
