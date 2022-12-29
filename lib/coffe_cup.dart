@@ -8,3 +8,5 @@ export 'features/text/coffee_text.dart';
 export 'features/fields/coffee_search_field.dart';
 export 'features/text/coffee_text_span.dart';
 export 'features/buttons/coffee_switch_button.dart';
+export 'features/horn_rating/assets_horns.dart';
+export 'features/horn_rating/horn_rating.dart';
