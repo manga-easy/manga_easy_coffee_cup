@@ -1,3 +1,4 @@
+import 'package:coffee_cup/coffe_cup.dart';
 import 'package:flutter/material.dart';
 import 'package:manga_easy_themes/manga_easy_themes.dart';
 
@@ -8,6 +9,7 @@ class CoffeeButton extends StatelessWidget {
   final Color? corTexto;
   final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry? padding;
+  final double? elevation;
 
   const CoffeeButton({
     super.key,
@@ -17,6 +19,7 @@ class CoffeeButton extends StatelessWidget {
     this.corTexto,
     this.margin,
     this.padding,
+    this.elevation,
   });
 
   @override
@@ -25,22 +28,21 @@ class CoffeeButton extends StatelessWidget {
       children: [
         Expanded(
           child: Padding(
-            padding: margin ?? const EdgeInsets.symmetric(horizontal: 20),
+            padding: margin ?? const EdgeInsets.symmetric(horizontal: 25),
             child: TextButton(
               onPressed: onPress,
               style: TextButton.styleFrom(
-                elevation: 12,
+                elevation: elevation ?? 12,
                 backgroundColor: corButton ?? ThemeService.of.primaryColor,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25),
                 ),
                 padding: padding ?? const EdgeInsets.symmetric(vertical: 10),
               ),
-              child: Text(
-                label,
-                style: Theme.of(context).textTheme.headline6!.copyWith(
-                      color: corTexto ?? ThemeService.of.primaryText,
-                    ),
+              child: CoffeeText(
+                text: label,
+                typography: CoffeeTypography.body,
+                color: corTexto ?? ThemeService.of.primaryText,
               ),
             ),
           ),
