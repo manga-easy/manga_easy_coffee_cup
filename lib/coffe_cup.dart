@@ -7,3 +7,4 @@ export 'features/cards/coffee_card_theme.dart';
 export 'features/text/coffee_text.dart';
 export 'features/fields/coffee_search_field.dart';
 export 'features/text/coffee_text_span.dart';
+export 'features/buttons/coffee_switch_button.dart';
