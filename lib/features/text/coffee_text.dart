@@ -20,7 +20,7 @@ class CoffeeText extends StatelessWidget {
   const CoffeeText({
     super.key,
     required this.text,
-    required this.typography,
+    this.typography = CoffeeTypography.body,
     this.color,
     this.maxLines,
     this.overflow,
