@@ -10,7 +10,7 @@ class CoffeeField extends StatelessWidget {
   final bool lines;
   final EdgeInsetsGeometry? contentPadding;
   final void Function(String)? onChanged;
-  final Widget? suffix;
+  final Widget? suffixIcon;
 
   const CoffeeField({
     super.key,
@@ -22,7 +22,7 @@ class CoffeeField extends StatelessWidget {
     this.lines = false,
     this.contentPadding,
     this.onChanged,
-    this.suffix,
+    this.suffixIcon,
   });
 
   @override
@@ -65,7 +65,7 @@ class CoffeeField extends StatelessWidget {
           borderSide: BorderSide(color: color ?? Colors.black, width: 2),
           borderRadius: BorderRadius.circular(20),
         ),
-        suffix: suffix,
+        suffixIcon: suffixIcon,
       ),
     );
   }
