@@ -1,4 +1,5 @@
 import 'package:coffee_cup/features/horn_rating/assets_horns.dart';
+import 'package:coffee_cup/features/images/coffee_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -28,7 +29,7 @@ class HornsRating extends StatelessWidget {
       itemCount: 5,
       itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
       itemBuilder: (context, index) {
-        return Image.asset(AssetsHorn.values[index].path);
+        return CoffeeImage.horn(AssetsHorn.hornVermelho);
       },
       onRatingUpdate: onRatingUpdate,
     );
