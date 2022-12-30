@@ -1,4 +1,4 @@
-const foulder = 'horn';
+const foulder = 'lib/features/assets/horn';
 
 enum AssetsHorn {
   hornCinza('$foulder/chifre_cinza.webp'),

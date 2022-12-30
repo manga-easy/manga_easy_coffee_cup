@@ -1,4 +1,4 @@
-const pathas = 'unicorn';
+const pathas = 'lib/features/assets/unicorn';
 
 enum AssetsUnicorn {
   alegre('$pathas/unicornio-alegre.png'),
