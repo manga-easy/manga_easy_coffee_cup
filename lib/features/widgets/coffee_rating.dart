@@ -1,14 +1,14 @@
-import 'package:coffee_cup/features/horn_rating/assets_horns.dart';
+import 'package:coffee_cup/features/widgets/assets_horns.dart';
 import 'package:coffee_cup/features/images/coffee_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
-class HornsRating extends StatelessWidget {
+class CoffeeRating extends StatelessWidget {
   final double hornClassification;
   final bool ignoreGesture;
   final double itemSize;
   final void Function(double) onRatingUpdate;
-  const HornsRating({
+  const CoffeeRating({
     super.key,
     this.hornClassification = 0,
     this.ignoreGesture = false,
