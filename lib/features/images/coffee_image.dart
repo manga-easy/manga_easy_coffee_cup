@@ -1,5 +1,5 @@
 import 'package:coffee_cup/features/assets/assets_unicorn.dart';
-import 'package:coffee_cup/features/horn_rating/assets_horns.dart';
+import 'package:coffee_cup/features/widgets/assets_horns.dart';
 import 'package:flutter/material.dart';
 
 class CoffeeImage extends Image {
@@ -7,13 +7,11 @@ class CoffeeImage extends Image {
     AssetsHorn asset, {
     super.key,
     super.alignment,
-    super.package = 'coffee_cup',
-  }) : super.asset(asset.path);
+  }) : super.asset(asset.path, package: 'coffee_cup');
 
   CoffeeImage.unicorn(
     AssetsUnicorn asset, {
     super.key,
     super.alignment,
-    super.package = 'coffee_cup',
-  }) : super.asset(asset.path);
+  }) : super.asset(asset.path, package: 'coffee_cup');
 }
