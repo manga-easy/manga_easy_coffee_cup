@@ -28,7 +28,7 @@ class CoffeeButton extends StatelessWidget {
       onTap: onPress,
       child: Padding(
         padding:
-            padding ?? const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+            padding ?? const EdgeInsets.symmetric(horizontal: 25, vertical: 6),
         child: PhysicalModel(
           color: corButton ?? ThemeService.of.primaryColor,
           borderRadius: BorderRadius.circular(25),
