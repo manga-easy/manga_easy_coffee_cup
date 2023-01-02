@@ -34,7 +34,7 @@ class CoffeeButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(25),
           elevation: elevation ?? 12,
           child: SizedBox(
-            width: MediaQuery.of(context).size.width,
+            width: width ?? MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height * 0.045,
             child: Center(
                 child: CoffeeText(
