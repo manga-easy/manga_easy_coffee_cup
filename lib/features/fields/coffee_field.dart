@@ -13,6 +13,7 @@ class CoffeeField extends StatelessWidget {
   final Widget? suffixIcon;
   final double? height;
   final EdgeInsetsGeometry? margin;
+  final void Function()? onTap;
 
   const CoffeeField({
     super.key,
@@ -27,6 +28,7 @@ class CoffeeField extends StatelessWidget {
     this.suffixIcon,
     this.height,
     this.margin,
+    this.onTap,
   });
 
   @override
@@ -35,6 +37,7 @@ class CoffeeField extends StatelessWidget {
       height: height ?? 54,
       padding: margin,
       child: TextFormField(
+        onTap: onTap,
         onChanged: onChanged,
         controller: controller,
         obscureText: obscureText,
