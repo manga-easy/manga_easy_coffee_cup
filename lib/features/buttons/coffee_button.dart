@@ -7,9 +7,9 @@ class CoffeeButton extends StatelessWidget {
   final void Function()? onPress;
   final Color? corButton;
   final Color? corTexto;
-  final EdgeInsetsGeometry? margin;
   final EdgeInsetsGeometry? padding;
   final double? elevation;
+  final double? width;
 
   const CoffeeButton({
     super.key,
@@ -17,9 +17,9 @@ class CoffeeButton extends StatelessWidget {
     this.onPress,
     this.corButton,
     this.corTexto,
-    this.margin,
     this.padding,
     this.elevation,
+    this.width,
   });
 
   @override
@@ -27,23 +27,20 @@ class CoffeeButton extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: Padding(
-            padding: margin ?? const EdgeInsets.symmetric(horizontal: 25),
-            child: TextButton(
-              onPressed: onPress,
-              style: TextButton.styleFrom(
-                elevation: elevation ?? 12,
-                backgroundColor: corButton ?? ThemeService.of.primaryColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25),
-                ),
-                padding: padding ?? const EdgeInsets.symmetric(vertical: 10),
+          child: TextButton(
+            onPressed: onPress,
+            style: TextButton.styleFrom(
+              elevation: elevation ?? 12,
+              backgroundColor: corButton ?? ThemeService.of.primaryColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25),
               ),
-              child: CoffeeText(
-                text: label,
-                typography: CoffeeTypography.body,
-                color: corTexto ?? ThemeService.of.primaryText,
-              ),
+              padding: padding ?? const EdgeInsets.symmetric(vertical: 16),
+            ),
+            child: CoffeeText(
+              text: label,
+              typography: CoffeeTypography.body,
+              color: corTexto ?? ThemeService.of.primaryText,
             ),
           ),
         ),

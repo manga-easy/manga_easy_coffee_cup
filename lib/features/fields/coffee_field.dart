@@ -11,6 +11,9 @@ class CoffeeField extends StatelessWidget {
   final EdgeInsetsGeometry? contentPadding;
   final void Function(String)? onChanged;
   final Widget? suffixIcon;
+  final double? height;
+  final EdgeInsetsGeometry? margin;
+  final void Function()? onTap;
 
   const CoffeeField({
     super.key,
@@ -23,49 +26,57 @@ class CoffeeField extends StatelessWidget {
     this.contentPadding,
     this.onChanged,
     this.suffixIcon,
+    this.height,
+    this.margin,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      onChanged: onChanged,
-      controller: controller,
-      obscureText: obscureText,
-      minLines: lines ? 10 : null,
-      maxLines: lines ? 200 : 1,
-      cursorColor: color ?? Colors.black,
-      style: Theme.of(context).textTheme.bodyText1!.copyWith(
-            color: color ?? Colors.black,
-            fontWeight: FontWeight.bold,
-          ),
-      decoration: InputDecoration(
-        contentPadding: contentPadding,
-        filled: true,
-        prefixIcon: icone != null
-            ? Icon(
-                icone,
-                color: color ?? Colors.black,
-              )
-            : null,
-        hintText: hintText,
-        hintStyle: Theme.of(context).textTheme.bodyText1!.copyWith(
+    return Container(
+      height: height ?? 54,
+      padding: margin,
+      child: TextFormField(
+        onTap: onTap,
+        onChanged: onChanged,
+        controller: controller,
+        obscureText: obscureText,
+        minLines: lines ? 10 : null,
+        maxLines: lines ? 200 : 1,
+        cursorColor: color ?? Colors.black,
+        style: Theme.of(context).textTheme.bodyText1!.copyWith(
               color: color ?? Colors.black,
               fontWeight: FontWeight.bold,
             ),
-        border: OutlineInputBorder(
-          borderSide: BorderSide(color: color ?? Colors.black, width: 2),
-          borderRadius: BorderRadius.circular(20),
+        decoration: InputDecoration(
+          contentPadding: contentPadding,
+          filled: true,
+          prefixIcon: icone != null
+              ? Icon(
+                  icone,
+                  color: color ?? Colors.black,
+                )
+              : null,
+          hintText: hintText,
+          hintStyle: Theme.of(context).textTheme.bodyText1!.copyWith(
+                color: color ?? Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+          border: OutlineInputBorder(
+            borderSide: BorderSide(color: color ?? Colors.black, width: 2),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+                color: color ?? ThemeService.of.primaryColor, width: 2),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderSide: BorderSide(color: color ?? Colors.black, width: 2),
+            borderRadius: BorderRadius.circular(20),
+          ),
+          suffixIcon: suffixIcon,
         ),
-        focusedBorder: OutlineInputBorder(
-          borderSide: BorderSide(
-              color: color ?? ThemeService.of.primaryColor, width: 2),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderSide: BorderSide(color: color ?? Colors.black, width: 2),
-          borderRadius: BorderRadius.circular(20),
-        ),
-        suffixIcon: suffixIcon,
       ),
     );
   }
