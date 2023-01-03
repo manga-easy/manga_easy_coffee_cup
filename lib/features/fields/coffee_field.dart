@@ -32,8 +32,8 @@ class CoffeeField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height ?? MediaQuery.of(context).size.height * 0.1,
-      padding: margin ?? const EdgeInsets.symmetric(horizontal: 10),
+      height: height ?? 54,
+      padding: margin,
       child: TextFormField(
         onChanged: onChanged,
         controller: controller,
