@@ -24,27 +24,20 @@ class CoffeeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      highlightColor: Colors.transparent,
-      splashColor: Colors.transparent,
-      onTap: onPress,
-      child: Padding(
-        padding:
-            padding ?? const EdgeInsets.symmetric(horizontal: 25, vertical: 6),
-        child: PhysicalModel(
-          color: corButton ?? ThemeService.of.primaryColor,
+    return TextButton(
+      onPressed: onPress,
+      style: TextButton.styleFrom(
+        elevation: elevation ?? 12,
+        backgroundColor: corButton ?? ThemeService.of.primaryColor,
+        shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(25),
-          elevation: elevation ?? 12,
-          child: SizedBox(
-            width: width ?? MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.045,
-            child: Center(
-                child: CoffeeText(
-              text: label,
-              color: corTexto ?? ThemeService.of.primaryText,
-            )),
-          ),
         ),
+        padding: padding ?? const EdgeInsets.symmetric(vertical: 16),
+      ),
+      child: CoffeeText(
+        text: label,
+        typography: CoffeeTypography.body,
+        color: corTexto ?? ThemeService.of.primaryText,
       ),
     );
   }
