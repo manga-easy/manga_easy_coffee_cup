@@ -24,21 +24,27 @@ class CoffeeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: onPress,
-      style: TextButton.styleFrom(
-        elevation: elevation ?? 12,
-        backgroundColor: corButton ?? ThemeService.of.primaryColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(25),
+    return Row(
+      children: [
+        Expanded(
+          child: TextButton(
+            onPressed: onPress,
+            style: TextButton.styleFrom(
+              elevation: elevation ?? 12,
+              backgroundColor: corButton ?? ThemeService.of.primaryColor,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25),
+              ),
+              padding: padding ?? const EdgeInsets.symmetric(vertical: 16),
+            ),
+            child: CoffeeText(
+              text: label,
+              typography: CoffeeTypography.body,
+              color: corTexto ?? ThemeService.of.primaryText,
+            ),
+          ),
         ),
-        padding: padding ?? const EdgeInsets.symmetric(vertical: 16),
-      ),
-      child: CoffeeText(
-        text: label,
-        typography: CoffeeTypography.body,
-        color: corTexto ?? ThemeService.of.primaryText,
-      ),
+      ],
     );
   }
 }
