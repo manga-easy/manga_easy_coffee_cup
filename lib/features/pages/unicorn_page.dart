@@ -18,6 +18,13 @@ class UnicornPage extends StatelessWidget {
     this.actionButton,
   });
 
+  Future<void> show(BuildContext context) async {
+    await Navigator.push(
+      context,
+      MaterialPageRoute(builder: build),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
