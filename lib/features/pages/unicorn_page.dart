@@ -46,22 +46,22 @@ class UnicornPage extends StatelessWidget {
                   ),
                 ],
               ),
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: CoffeeImage.unicorn(unicorn),
-                  ),
-                  const SizedBox(height: 30),
-                  CoffeeText(
-                    text: title,
-                    typography: CoffeeTypography.title,
-                  ),
-                  const SizedBox(height: 30),
-                  CoffeeText(
-                    text: body,
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Column(
+                  children: [
+                    CoffeeImage.unicorn(unicorn),
+                    const SizedBox(height: 30),
+                    CoffeeText(
+                      text: title,
+                      typography: CoffeeTypography.title,
+                    ),
+                    const SizedBox(height: 30),
+                    CoffeeText(
+                      text: body,
+                    ),
+                  ],
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
