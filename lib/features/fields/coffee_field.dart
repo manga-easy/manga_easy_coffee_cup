@@ -14,6 +14,7 @@ class CoffeeField extends StatelessWidget {
   final double? height;
   final EdgeInsetsGeometry? margin;
   final void Function()? onTap;
+  final void Function()? onEditingComplete;
 
   const CoffeeField({
     super.key,
@@ -29,6 +30,7 @@ class CoffeeField extends StatelessWidget {
     this.height,
     this.margin,
     this.onTap,
+    this.onEditingComplete,
   });
 
   @override
@@ -41,6 +43,7 @@ class CoffeeField extends StatelessWidget {
         onChanged: onChanged,
         controller: controller,
         obscureText: obscureText,
+        onEditingComplete: onEditingComplete,
         minLines: lines ? 10 : null,
         maxLines: lines ? 200 : 1,
         cursorColor: color ?? Colors.black,
