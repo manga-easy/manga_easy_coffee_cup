@@ -1,4 +1,4 @@
-import 'package:coffee_cup/features/cards/image_card/states/coffee_state.dart';
+import 'package:coffee_cup/features/cards/image_card/states/coffee_cover_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:manga_easy_sdk/manga_easy_sdk.dart';
