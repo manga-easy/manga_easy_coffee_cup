@@ -7,11 +7,15 @@ class CoffeeImage extends Image {
     AssetsHorn asset, {
     super.key,
     super.alignment,
+    super.width,
+    super.height,
   }) : super.asset(asset.path, package: 'coffee_cup');
 
   CoffeeImage.unicorn(
     AssetsUnicorn asset, {
     super.key,
     super.alignment,
+    super.width,
+    super.height,
   }) : super.asset(asset.path, package: 'coffee_cup');
 }

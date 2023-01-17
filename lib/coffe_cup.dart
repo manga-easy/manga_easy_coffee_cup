@@ -11,3 +11,4 @@ export 'features/buttons/coffee_switch_button.dart';
 export 'features/assets/assets_horns.dart';
 export 'features/widgets/coffee_rating.dart';
 export 'features/images/coffee_image.dart';
+export 'features/pages/unicorn_page.dart';

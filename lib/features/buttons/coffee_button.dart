@@ -39,7 +39,7 @@ class CoffeeButton extends StatelessWidget {
             ),
             child: CoffeeText(
               text: label,
-              typography: CoffeeTypography.body,
+              typography: CoffeeTypography.button,
               color: corTexto ?? ThemeService.of.primaryText,
             ),
           ),

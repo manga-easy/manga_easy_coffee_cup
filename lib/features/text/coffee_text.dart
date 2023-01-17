@@ -3,6 +3,7 @@ import 'package:manga_easy_themes/manga_easy_themes.dart';
 
 enum CoffeeTypography {
   title(true, 24),
+  button(true, 16),
   body(false, 14);
 
   final bool isBold;
@@ -35,7 +36,7 @@ class CoffeeText extends StatelessWidget {
       style: Theme.of(context).textTheme.bodySmall!.copyWith(
             color: color ?? ThemeService.of.backgroundText,
             fontSize: typography.size,
-            fontWeight: typography.isBold ? FontWeight.bold : FontWeight.w100,
+            fontWeight: typography.isBold ? FontWeight.bold : FontWeight.normal,
           ),
     );
   }
