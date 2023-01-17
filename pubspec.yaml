@@ -11,11 +11,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  manga_easy_sdk:
+    git: 
+      url: https://github.com/lucascardo12/manga_easy_sdk.git
+      ref: 1.1.2
   manga_easy_themes:
     git: 
       url: https://github.com/lucascardo12/manga_easy_themes.git
       ref: 1.0.0
   flutter_rating_bar: ^4.0.1
+  flutter_cache_manager: ^3.3.0
 
 dev_dependencies:
   flutter_test:
@@ -27,3 +32,4 @@ flutter:
   assets:
     - lib/features/assets/horn/
     - lib/features/assets/unicorn/
+    - lib/features/assets/states/
