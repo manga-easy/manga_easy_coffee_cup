@@ -15,6 +15,7 @@ class CoffeeField extends StatelessWidget {
   final EdgeInsetsGeometry? margin;
   final void Function()? onTap;
   final void Function()? onEditingComplete;
+  final EdgeInsets? scrollPadding;
 
   const CoffeeField({
     super.key,
@@ -31,6 +32,7 @@ class CoffeeField extends StatelessWidget {
     this.margin,
     this.onTap,
     this.onEditingComplete,
+    this.scrollPadding,
   });
 
   @override
@@ -39,6 +41,7 @@ class CoffeeField extends StatelessWidget {
       height: height ?? 54,
       padding: margin,
       child: TextFormField(
+        scrollPadding: scrollPadding ?? const EdgeInsets.all(20),
         onTap: onTap,
         onChanged: onChanged,
         controller: controller,
