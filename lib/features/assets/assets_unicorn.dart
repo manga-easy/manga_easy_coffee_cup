@@ -1,10 +1,10 @@
 const pathas = 'lib/features/assets/unicorn';
 
 enum AssetsUnicorn {
-  alegre('$pathas/unicornio-alegre.png'),
+  happy('$pathas/unicornio-alegre.png'),
   coffee('$pathas/unicornio-cafe.png'),
-  lendo('$pathas/unicornio-lendo.png'),
-  manutencao('$pathas/unicornio-manutencao.png'),
+  reading('$pathas/unicornio-lendo.png'),
+  maintenance('$pathas/unicornio-manutencao.png'),
   sad('$pathas/unicornio-triste.png'),
   fire('$pathas/unicornio_fogo.png'),
   writing('$pathas/unicornio_escrevendo.png'),
