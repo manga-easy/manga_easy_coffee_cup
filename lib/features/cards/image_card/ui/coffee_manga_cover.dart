@@ -7,15 +7,16 @@ class CoffeeMangaCover extends StatelessWidget {
   final String cover;
   final double width;
   final double height;
+  final BorderRadiusGeometry? border;
 
   static CacheManager cacheManager = DefaultCacheManager();
 
-  const CoffeeMangaCover({
-    super.key,
-    required this.cover,
-    this.height = 350,
-    this.width = 250,
-  });
+  const CoffeeMangaCover(
+      {super.key,
+      required this.cover,
+      this.height = 350,
+      this.width = 250,
+      this.border});
 
   Future<CoverState> getImageCache(String cover) async {
     try {
@@ -56,9 +57,10 @@ class CoffeeMangaCover extends StatelessWidget {
               image: state.image,
               fit: BoxFit.cover,
             ),
-            borderRadius: const BorderRadius.all(
-              Radius.circular(20),
-            ),
+            borderRadius: border ??
+                const BorderRadius.all(
+                  Radius.circular(20),
+                ),
           ),
           padding: const EdgeInsets.all(10),
         );

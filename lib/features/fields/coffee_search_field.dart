@@ -48,7 +48,7 @@ class CoffeeSearchField extends StatelessWidget {
                 focusNode: focusNode,
                 style: Theme.of(context)
                     .textTheme
-                    .headline6!
+                    .titleLarge!
                     .copyWith(color: ThemeService.of.primaryText),
                 decoration: InputDecoration(
                   hintText: 'Pesquisar',
@@ -68,7 +68,7 @@ class CoffeeSearchField extends StatelessWidget {
                   filled: filled,
                   hintStyle: Theme.of(context)
                       .textTheme
-                      .headline6!
+                      .titleLarge!
                       .copyWith(color: ThemeService.of.primaryText),
                   fillColor: ThemeService.of.primaryColor,
                   prefixIcon: ValueListenableBuilder<bool>(

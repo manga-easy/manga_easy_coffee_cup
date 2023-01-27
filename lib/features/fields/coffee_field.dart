@@ -50,7 +50,7 @@ class CoffeeField extends StatelessWidget {
         minLines: lines ? 10 : null,
         maxLines: lines ? 200 : 1,
         cursorColor: color ?? Colors.black,
-        style: Theme.of(context).textTheme.bodyText1!.copyWith(
+        style: Theme.of(context).textTheme.bodyLarge!.copyWith(
               color: color ?? Colors.black,
               fontWeight: FontWeight.bold,
             ),
@@ -64,7 +64,7 @@ class CoffeeField extends StatelessWidget {
                 )
               : null,
           hintText: hintText,
-          hintStyle: Theme.of(context).textTheme.bodyText1!.copyWith(
+          hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
                 color: color ?? Colors.black,
                 fontWeight: FontWeight.bold,
               ),
