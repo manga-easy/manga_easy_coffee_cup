@@ -1,32 +1,36 @@
 import 'package:coffee_cup/features/cards/image_card/states/coffee_cover_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
-import 'package:manga_easy_sdk/manga_easy_sdk.dart';
 
 class CoffeeMangaCover extends StatelessWidget {
   final String cover;
   final double width;
   final double height;
   final BorderRadiusGeometry? border;
+  final bool filtraImg;
+  final Map<String, String>? headers;
 
   static CacheManager cacheManager = DefaultCacheManager();
 
-  const CoffeeMangaCover(
-      {super.key,
-      required this.cover,
-      this.height = 350,
-      this.width = 250,
-      this.border});
+  const CoffeeMangaCover({
+    super.key,
+    required this.cover,
+    this.height = 350,
+    this.width = 250,
+    this.border,
+    required this.filtraImg,
+    this.headers,
+  });
 
-  Future<CoverState> getImageCache(String cover) async {
+  Future<CoverState> _getImageCache(String cover) async {
     try {
       if (cover.contains('.html') || cover.isEmpty) {
         throw Exception('não é imagem');
       }
-      if (!Global.filtraImg) {
+      if (!filtraImg) {
         throw Exception('Filtro google ativo');
       }
-      var ret = await cacheManager.getSingleFile(cover, headers: Global.header);
+      var ret = await cacheManager.getSingleFile(cover, headers: headers);
 
       if (ret.lengthSync() <= 151) {
         throw Exception('Imagem invalida');
@@ -40,7 +44,7 @@ class CoffeeMangaCover extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<CoverState>(
-      future: getImageCache(cover),
+      future: _getImageCache(cover),
       builder: (context, snapshot) {
         CoverState state = CoverLoading();
         if (snapshot.data is CoverSuccess) {
