@@ -49,7 +49,7 @@ class CoffeeSearchField extends StatelessWidget {
                 style: Theme.of(context)
                     .textTheme
                     .titleLarge!
-                    .copyWith(color: ThemeService.of.primaryText),
+                    .copyWith(color: ThemeService.of.backgroundText),
                 decoration: InputDecoration(
                   hintText: 'Pesquisar',
                   contentPadding: const EdgeInsets.symmetric(horizontal: 10),
@@ -61,7 +61,7 @@ class CoffeeSearchField extends StatelessWidget {
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       width: 3.0,
-                      color: ThemeService.of.selectColor,
+                      color: ThemeService.of.backgroundIcon,
                     ),
                     borderRadius: borderRadius ?? BorderRadius.circular(25.0),
                   ),
@@ -69,8 +69,8 @@ class CoffeeSearchField extends StatelessWidget {
                   hintStyle: Theme.of(context)
                       .textTheme
                       .titleLarge!
-                      .copyWith(color: ThemeService.of.primaryText),
-                  fillColor: ThemeService.of.primaryColor,
+                      .copyWith(color: ThemeService.of.backgroundText),
+                  fillColor: ThemeService.of.backgroundColor,
                   prefixIcon: ValueListenableBuilder<bool>(
                       valueListenable: showBack,
                       builder: (context, value, child) {
@@ -79,7 +79,7 @@ class CoffeeSearchField extends StatelessWidget {
                               showBack.value ? Navigator.pop(context) : null,
                           icon: Icon(
                             showBack.value ? Icons.arrow_back : Icons.search,
-                            color: ThemeService.of.primaryText,
+                            color: ThemeService.of.backgroundIcon,
                           ),
                         );
                       }),
