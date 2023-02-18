@@ -16,24 +16,27 @@ class CoffeeField extends StatelessWidget {
   final void Function()? onTap;
   final void Function()? onEditingComplete;
   final EdgeInsets? scrollPadding;
+  final FontWeight? fontWeight;
+  final FontWeight? fontWeightHint;
 
-  const CoffeeField({
-    super.key,
-    this.hintText,
-    this.obscureText = false,
-    this.icone,
-    this.controller,
-    this.color,
-    this.lines = false,
-    this.contentPadding,
-    this.onChanged,
-    this.suffixIcon,
-    this.height,
-    this.margin,
-    this.onTap,
-    this.onEditingComplete,
-    this.scrollPadding,
-  });
+  const CoffeeField(
+      {super.key,
+      this.hintText,
+      this.obscureText = false,
+      this.icone,
+      this.controller,
+      this.color,
+      this.lines = false,
+      this.contentPadding,
+      this.onChanged,
+      this.suffixIcon,
+      this.height,
+      this.margin,
+      this.onTap,
+      this.onEditingComplete,
+      this.scrollPadding,
+      this.fontWeight,
+      this.fontWeightHint});
 
   @override
   Widget build(BuildContext context) {
@@ -49,10 +52,10 @@ class CoffeeField extends StatelessWidget {
         onEditingComplete: onEditingComplete,
         minLines: lines ? 10 : null,
         maxLines: lines ? 200 : 1,
-        cursorColor: color ?? Colors.black,
+        cursorColor: color ?? ThemeService.of.backgroundText,
         style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-              color: color ?? Colors.black,
-              fontWeight: FontWeight.bold,
+              color: color ?? ThemeService.of.backgroundText,
+              fontWeight: fontWeight ?? FontWeight.normal,
             ),
         decoration: InputDecoration(
           contentPadding: contentPadding,
@@ -60,16 +63,16 @@ class CoffeeField extends StatelessWidget {
           prefixIcon: icone != null
               ? Icon(
                   icone,
-                  color: color ?? Colors.black,
+                  color: color ?? ThemeService.of.backgroundIcon,
                 )
               : null,
           hintText: hintText,
           hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                color: color ?? Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
+              color: color ?? ThemeService.of.backgroundText.withOpacity(0.6),
+              fontWeight: fontWeightHint ?? FontWeight.normal),
           border: OutlineInputBorder(
-            borderSide: BorderSide(color: color ?? Colors.black, width: 2),
+            borderSide: BorderSide(
+                color: color ?? ThemeService.of.primaryColor, width: 2),
             borderRadius: BorderRadius.circular(20),
           ),
           focusedBorder: OutlineInputBorder(
@@ -78,7 +81,8 @@ class CoffeeField extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
           ),
           enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: color ?? Colors.black, width: 2),
+            borderSide: BorderSide(
+                color: color ?? ThemeService.of.backgroundText, width: 2),
             borderRadius: BorderRadius.circular(20),
           ),
           suffixIcon: suffixIcon,
