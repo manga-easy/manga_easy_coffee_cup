@@ -15,7 +15,7 @@ dependencies:
   manga_easy_themes:
     git: 
       url: https://github.com/lucascardo12/manga_easy_themes.git
-      ref: 1.0.0
+      ref: 1.0.1
   flutter_rating_bar: ^4.0.1
   flutter_cache_manager: ^3.3.0
 
