@@ -60,7 +60,7 @@ class CoffeeSearchField extends StatelessWidget {
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(
-                      width: 3.0,
+                      width: 2.0,
                       color: ThemeService.of.backgroundIcon,
                     ),
                     borderRadius: borderRadius ?? BorderRadius.circular(25.0),
