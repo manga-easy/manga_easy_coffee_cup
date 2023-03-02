@@ -8,11 +8,11 @@ var _middleText = '';
 class CoffeeDialogUnicorn extends StatelessWidget {
   final String? middleText;
   final String title;
-  final List<Widget> buttons;
+  final List<Widget>? buttons;
 
   const CoffeeDialogUnicorn({
     super.key,
-    this.buttons = const [],
+    this.buttons,
     this.middleText,
     required this.title,
   });
@@ -75,19 +75,19 @@ class CoffeeDialogUnicorn extends StatelessWidget {
               : const SizedBox(),
         ],
       ),
-      actions: <Widget>[
-        ...buttons,
-        Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: CoffeeButton(
-            label: 'OK',
-            padding: const EdgeInsets.symmetric(vertical: 10),
-            onPress: () {
-              Navigator.of(context).pop();
-            },
-          ),
-        ),
-      ],
+      actions: buttons ??
+          [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: CoffeeButton(
+                label: 'OK',
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                onPress: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ),
+          ],
     );
   }
 }
