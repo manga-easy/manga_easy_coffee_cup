@@ -7,9 +7,10 @@ class CoffeeButton extends StatelessWidget {
   final void Function()? onPress;
   final Color? corButton;
   final Color? corTexto;
-  final EdgeInsetsGeometry? padding;
-  final double? elevation;
+  final EdgeInsetsGeometry padding;
+  final double elevation;
   final double? width;
+  final Widget? icon;
 
   const CoffeeButton({
     super.key,
@@ -17,9 +18,10 @@ class CoffeeButton extends StatelessWidget {
     this.onPress,
     this.corButton,
     this.corTexto,
-    this.padding,
-    this.elevation,
+    this.padding = const EdgeInsets.symmetric(vertical: 16),
+    this.elevation = 12,
     this.width,
+    this.icon,
   });
 
   @override
@@ -27,17 +29,18 @@ class CoffeeButton extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: TextButton(
+          child: TextButton.icon(
             onPressed: onPress,
             style: TextButton.styleFrom(
-              elevation: elevation ?? 12,
+              elevation: elevation,
               backgroundColor: corButton ?? ThemeService.of.primaryColor,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(25),
+                borderRadius: ThemeService.of.borderRadius,
               ),
-              padding: padding ?? const EdgeInsets.symmetric(vertical: 16),
+              padding: padding,
             ),
-            child: CoffeeText(
+            icon: icon ?? const SizedBox(),
+            label: CoffeeText(
               text: label,
               typography: CoffeeTypography.button,
               color: corTexto ?? ThemeService.of.primaryText,

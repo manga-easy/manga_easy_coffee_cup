@@ -11,14 +11,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  manga_easy_sdk:
-    git: 
-      url: https://github.com/lucascardo12/manga_easy_sdk.git
-      ref: 1.1.3
+
   manga_easy_themes:
     git: 
-      url: https://github.com/lucascardo12/manga_easy_themes.git
-      ref: 1.0.0
+      url: https://github.com/manga-easy/manga_easy_themes.git
+      ref: 1.0.2
   flutter_rating_bar: ^4.0.1
   flutter_cache_manager: ^3.3.0
 

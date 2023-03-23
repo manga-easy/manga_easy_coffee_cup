@@ -15,3 +15,5 @@ export 'features/pages/unicorn_page.dart';
 export 'features/cards/image_card/ui/coffee_manga_cover.dart';
 export 'features/assets/assets_state.dart';
 export 'features/images/coffee_asset_image.dart';
+export 'features/buttons/coffee_button_text.dart';
+export 'features/dialogs/coffee_dialog_uni.dart';
