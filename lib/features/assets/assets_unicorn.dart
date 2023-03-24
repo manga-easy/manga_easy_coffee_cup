@@ -4,7 +4,7 @@ enum AssetsUnicorn {
   happy('$pathas/unicornio_happy.png'),
   coffee('$pathas/unicornio_coffee.png'),
   reading('$pathas/unicornio_reading.png'),
-  maintenance('$pathas/unicornio_maintenance.png'),
+  fixing('$pathas/unicornio_fixing.png'),
   sad('$pathas/unicornio_sad.png'),
   fire('$pathas/unicornio_fire.png'),
   writing('$pathas/unicornio_writing.png'),
