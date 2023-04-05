@@ -42,7 +42,8 @@ class CoffeeBanner extends StatelessWidget {
               image: DecorationImage(
                 image: snapshot.data != null
                     ? FileImage(snapshot.data!)
-                    : CoffeeImage.state(AssetsState.loading) as ImageProvider,
+                    : CoffeeAssetImage.state(AssetsState.loading)
+                        as ImageProvider,
                 fit: BoxFit.fill,
               ),
             ),
