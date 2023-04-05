@@ -1,6 +1,6 @@
 import 'package:coffee_cup/features/cards/image_card/states/coffee_cover_state.dart';
+import 'package:coffee_cup/shared/shared_static.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 
 class CoffeeMangaCover extends StatelessWidget {
   final String cover;
@@ -9,8 +9,6 @@ class CoffeeMangaCover extends StatelessWidget {
   final BorderRadiusGeometry? border;
   final bool filtraImg;
   final Map<String, String>? headers;
-
-  static CacheManager cacheManager = DefaultCacheManager();
 
   const CoffeeMangaCover({
     super.key,
@@ -30,7 +28,8 @@ class CoffeeMangaCover extends StatelessWidget {
       if (!filtraImg) {
         throw Exception('Filtro google ativo');
       }
-      var ret = await cacheManager.getSingleFile(cover, headers: headers);
+      var ret = await SharedStatic.cacheManager
+          .getSingleFile(cover, headers: headers);
 
       if (ret.lengthSync() <= 151) {
         throw Exception('Imagem invalida');
