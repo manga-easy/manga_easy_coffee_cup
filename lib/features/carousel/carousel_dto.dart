@@ -1,8 +1,8 @@
-class CarrosselDTO {
+class CarouselDTO {
   final String link;
   final String image;
 
-  CarrosselDTO({
+  CarouselDTO({
     required this.link,
     required this.image,
   });

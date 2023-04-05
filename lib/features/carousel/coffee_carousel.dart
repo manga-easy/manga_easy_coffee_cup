@@ -1,11 +1,11 @@
-import 'package:coffee_cup/features/carrossel/carrossel_dto.dart';
-import 'package:coffee_cup/features/carrossel/coffee_banner.dart';
+import 'package:coffee_cup/features/carousel/carousel_dto.dart';
+import 'package:coffee_cup/features/carousel/coffee_banner.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 
 class CoffeeCarousel extends StatelessWidget {
-  final List<CarrosselDTO> items;
-  final void Function(CarrosselDTO link) onTap;
+  final List<CarouselDTO> items;
+  final void Function(CarouselDTO link) onTap;
   final double? viewportFraction;
 
   const CoffeeCarousel({
