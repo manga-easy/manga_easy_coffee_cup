@@ -9,7 +9,7 @@ class CoffeeButton extends StatelessWidget {
   final Color? corTexto;
   final EdgeInsetsGeometry padding;
   final double elevation;
-  final double? width;
+  final double paddingWidth;
   final Widget? icon;
 
   const CoffeeButton({
@@ -20,34 +20,37 @@ class CoffeeButton extends StatelessWidget {
     this.corTexto,
     this.padding = const EdgeInsets.symmetric(vertical: 16),
     this.elevation = 12,
-    this.width,
+    this.paddingWidth = 0,
     this.icon,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: TextButton.icon(
-            onPressed: onPress,
-            style: TextButton.styleFrom(
-              elevation: elevation,
-              backgroundColor: corButton ?? ThemeService.of.primaryColor,
-              shape: RoundedRectangleBorder(
-                borderRadius: ThemeService.of.borderRadius,
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: paddingWidth),
+      child: Row(
+        children: [
+          Expanded(
+            child: TextButton.icon(
+              onPressed: onPress,
+              style: TextButton.styleFrom(
+                elevation: elevation,
+                backgroundColor: corButton ?? ThemeService.of.primaryColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: ThemeService.of.borderRadius,
+                ),
+                padding: padding,
               ),
-              padding: padding,
-            ),
-            icon: icon ?? const SizedBox(),
-            label: CoffeeText(
-              text: label,
-              typography: CoffeeTypography.button,
-              color: corTexto ?? ThemeService.of.primaryText,
+              icon: icon ?? const SizedBox(),
+              label: CoffeeText(
+                text: label,
+                typography: CoffeeTypography.button,
+                color: corTexto ?? ThemeService.of.primaryText,
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
