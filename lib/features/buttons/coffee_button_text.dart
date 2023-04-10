@@ -9,6 +9,8 @@ class CoffeeButtonText extends StatelessWidget {
   final IconData? sufixIcon;
   final double? paddingPrefix;
   final double? paddingSufix;
+  final double? sizePrefixIcon;
+  final double? sizeSufixIcon;
 
   const CoffeeButtonText(
       {super.key,
@@ -18,7 +20,9 @@ class CoffeeButtonText extends StatelessWidget {
       this.prefixIcon,
       this.sufixIcon,
       this.paddingPrefix,
-      this.paddingSufix});
+      this.paddingSufix,
+      this.sizePrefixIcon,
+      this.sizeSufixIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -28,11 +32,15 @@ class CoffeeButtonText extends StatelessWidget {
         onTap: onPressed,
         child: Row(
           children: [
-            prefixIcon != null ? Icon(prefixIcon) : const SizedBox.shrink(),
+            prefixIcon != null
+                ? Icon(prefixIcon, size: sizePrefixIcon)
+                : const SizedBox.shrink(),
             SizedBox(width: paddingPrefix),
             CoffeeText(text: text),
             SizedBox(width: paddingSufix),
-            sufixIcon != null ? Icon(sufixIcon) : const SizedBox.shrink(),
+            sufixIcon != null
+                ? Icon(sufixIcon, size: sizeSufixIcon)
+                : const SizedBox.shrink(),
           ],
         ),
       ),
