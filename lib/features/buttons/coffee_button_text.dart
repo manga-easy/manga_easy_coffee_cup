@@ -4,22 +4,37 @@ import 'package:flutter/material.dart';
 class CoffeeButtonText extends StatelessWidget {
   final String text;
   final void Function()? onPressed;
-  final EdgeInsetsGeometry? padding;
+  final EdgeInsets? padding;
+  final IconData? prefixIcon;
+  final IconData? sufixIcon;
+  final double? paddingPrefix;
+  final double? paddingSufix;
 
-  const CoffeeButtonText({
-    super.key,
-    this.onPressed,
-    required this.text,
-    this.padding,
-  });
+  const CoffeeButtonText(
+      {super.key,
+      this.onPressed,
+      required this.text,
+      this.padding,
+      this.prefixIcon,
+      this.sufixIcon,
+      this.paddingPrefix,
+      this.paddingSufix});
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      style: TextButton.styleFrom(padding: padding),
-      onPressed: onPressed,
-      child: CoffeeText(
-        text: text,
+    return Padding(
+      padding: padding ?? const EdgeInsets.all(0),
+      child: GestureDetector(
+        onTap: onPressed,
+        child: Row(
+          children: [
+            prefixIcon != null ? Icon(prefixIcon) : const SizedBox.shrink(),
+            SizedBox(width: paddingPrefix),
+            CoffeeText(text: text),
+            SizedBox(width: paddingSufix),
+            sufixIcon != null ? Icon(sufixIcon) : const SizedBox.shrink(),
+          ],
+        ),
       ),
     );
   }
