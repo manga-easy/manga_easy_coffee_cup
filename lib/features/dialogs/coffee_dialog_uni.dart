@@ -34,6 +34,12 @@ class CoffeeDialogUnicorn extends StatelessWidget {
     showDialog(context: context, builder: build);
   }
 
+  void warning(BuildContext context) {
+    _unicorn = AssetsUnicorn.coffee;
+    _middleText = middleText ?? '';
+    showDialog(context: context, builder: build);
+  }
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
