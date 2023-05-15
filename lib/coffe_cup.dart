@@ -18,3 +18,4 @@ export 'features/images/coffee_asset_image.dart';
 export 'features/buttons/coffee_button_text.dart';
 export 'features/dialogs/coffee_dialog_uni.dart';
 export 'features/carousel/export_carousel.dart';
+export 'features/assets/cats/assets_unicorn.dart';
