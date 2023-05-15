@@ -1,3 +1,4 @@
+import 'package:coffee_cup/features/assets/cats/assets_cats.dart';
 import 'package:coffee_cup/features/assets/horn/assets_horns.dart';
 import 'package:coffee_cup/features/assets/states/assets_state.dart';
 import 'package:coffee_cup/features/assets/unicorn/assets_unicorn.dart';
@@ -23,6 +24,14 @@ class CoffeeImage extends Image {
 
   CoffeeImage.state(
     AssetsState asset, {
+    super.key,
+    super.alignment,
+    super.width,
+    super.height,
+  }) : super.asset(asset.path, package: package);
+
+  CoffeeImage.cats(
+    AssetsCats asset, {
     super.key,
     super.alignment,
     super.width,
