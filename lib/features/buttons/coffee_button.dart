@@ -9,7 +9,7 @@ class CoffeeButton extends StatelessWidget {
   final Color? corTexto;
   final EdgeInsetsGeometry padding;
   final double elevation;
-  final double paddingWidth;
+  final EdgeInsets? externalPadding;
   final Widget? icon;
 
   const CoffeeButton({
@@ -20,14 +20,14 @@ class CoffeeButton extends StatelessWidget {
     this.corTexto,
     this.padding = const EdgeInsets.symmetric(vertical: 16),
     this.elevation = 12,
-    this.paddingWidth = 0,
+    this.externalPadding,
     this.icon,
   });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: paddingWidth),
+      padding: externalPadding ?? EdgeInsets.zero,
       child: Row(
         children: [
           Expanded(
