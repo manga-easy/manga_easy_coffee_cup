@@ -1,6 +1,6 @@
-import 'package:coffee_cup/features/assets/assets_horns.dart';
-import 'package:coffee_cup/features/assets/assets_state.dart';
-import 'package:coffee_cup/features/assets/assets_unicorn.dart';
+import 'package:coffee_cup/features/assets/horn/assets_horns.dart';
+import 'package:coffee_cup/features/assets/states/assets_state.dart';
+import 'package:coffee_cup/features/assets/unicorn/assets_unicorn.dart';
 import 'package:flutter/material.dart';
 
 class CoffeeImage extends Image {
