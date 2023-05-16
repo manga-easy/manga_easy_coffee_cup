@@ -26,6 +26,7 @@ class CoffeeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //TODO: Remover row e expanded
     return Padding(
       padding: margin ?? EdgeInsets.zero,
       child: Row(
