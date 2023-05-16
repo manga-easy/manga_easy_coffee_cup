@@ -31,3 +31,4 @@ flutter:
     - lib/features/assets/horn/
     - lib/features/assets/unicorn/
     - lib/features/assets/states/
+    - lib/features/assets/cats/
