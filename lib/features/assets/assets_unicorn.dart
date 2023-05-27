@@ -1,15 +1,19 @@
 const pathas = 'lib/features/assets/unicorn';
 
 enum AssetsUnicorn {
-  happy('$pathas/unicornio_happy.png'),
-  coffee('$pathas/unicornio_coffee.png'),
-  reading('$pathas/unicornio_reading.png'),
-  fixing('$pathas/unicornio_fixing.png'),
-  sad('$pathas/unicornio_sad.png'),
-  fire('$pathas/unicornio_fire.png'),
-  writing('$pathas/unicornio_writing.png'),
-  scooter('$pathas/unicornio_scooter.png'),
-  error404('$pathas/unicornio_erro_404.png');
+  coffee('$pathas/uni_coffee.png'),
+  error404('$pathas/uni_erro_404.png'),
+  fire('$pathas/uni_fire.png'),
+  fixing('$pathas/uni_fixing.png'),
+  happy('$pathas/uni_happy.png'),
+  magic('$pathas/uni_magic.png'),
+  pixel('$pathas/uni_pixel.png'),
+  reading('$pathas/uni_reading.png'),
+  sad('$pathas/uni_sad.png'),
+  scooter('$pathas/uni_scooter.png'),
+  search('$pathas/uni_search.png'),
+  star('$pathas/uni_star.png'),
+  writing('$pathas/uni_writing.png');
 
   final String path;
   const AssetsUnicorn(this.path);
