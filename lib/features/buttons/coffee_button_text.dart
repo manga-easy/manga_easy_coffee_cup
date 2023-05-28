@@ -5,12 +5,14 @@ class CoffeeButtonText extends StatelessWidget {
   final String text;
   final void Function()? onPressed;
   final EdgeInsetsGeometry? padding;
+  final Color? color;
 
   const CoffeeButtonText({
     super.key,
     this.onPressed,
     required this.text,
     this.padding,
+    this.color,
   });
 
   @override
@@ -20,6 +22,7 @@ class CoffeeButtonText extends StatelessWidget {
       onPressed: onPressed,
       child: CoffeeText(
         text: text,
+        color: color,
       ),
     );
   }
