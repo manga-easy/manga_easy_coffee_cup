@@ -1,8 +1,10 @@
 import 'package:coffee_cup/coffe_cup.dart';
 import 'package:flutter/material.dart';
+import 'package:manga_easy_themes/manga_easy_themes.dart';
 
 class LoadingPage extends StatefulWidget {
-  const LoadingPage({super.key});
+  final double animationValue;
+  const LoadingPage({super.key, required this.animationValue});
 
   @override
   State<LoadingPage> createState() => _LoadingPageState();
@@ -17,7 +19,16 @@ class _LoadingPageState extends State<LoadingPage> {
         Image(
           image: CoffeeAssetImage.cats(AssetsCats.runningCircle),
         ),
-        const CoffeeText(text: 'Carregando...')
+        const CoffeeText(text: 'Carregando...'),
+        const SizedBox(
+          height: 10,
+        ),
+        LinearProgressIndicator(
+          value: widget.animationValue,
+          semanticsLabel: 'Linear progress indicator',
+          minHeight: 8,
+          color: ThemeService.of.primaryColor,
+        ),
       ],
     );
   }
