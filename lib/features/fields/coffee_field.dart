@@ -18,6 +18,7 @@ class CoffeeField extends StatelessWidget {
   final EdgeInsets? scrollPadding;
   final FontWeight? fontWeight;
   final FontWeight? fontWeightHint;
+  final String? initText;
 
   const CoffeeField(
       {super.key,
@@ -36,7 +37,8 @@ class CoffeeField extends StatelessWidget {
       this.onEditingComplete,
       this.scrollPadding,
       this.fontWeight,
-      this.fontWeightHint});
+      this.fontWeightHint,
+      this.initText});
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +59,7 @@ class CoffeeField extends StatelessWidget {
               color: color ?? ThemeService.of.backgroundText,
               fontWeight: fontWeight ?? FontWeight.normal,
             ),
+        initialValue: initText,
         decoration: InputDecoration(
           contentPadding: contentPadding,
           filled: true,
