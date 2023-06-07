@@ -20,3 +20,4 @@ export 'features/dialogs/coffee_dialog_uni.dart';
 export 'features/carousel/export_carousel.dart';
 export 'features/assets/cats/assets_cats.dart';
 export 'features/container/coffee_container.dart';
+export 'features/container/coffee_container_description.dart';
