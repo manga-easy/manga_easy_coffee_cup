@@ -4,7 +4,7 @@ import 'package:manga_easy_themes/manga_easy_themes.dart';
 
 class CoffeeButton extends StatelessWidget {
   final String label;
-  final void Function()? onPress;
+  final void Function()? onPressed;
   final Color? corButton;
   final Color? corTexto;
   final EdgeInsetsGeometry padding;
@@ -15,7 +15,7 @@ class CoffeeButton extends StatelessWidget {
   const CoffeeButton({
     super.key,
     required this.label,
-    this.onPress,
+    this.onPressed,
     this.corButton,
     this.corTexto,
     this.padding = const EdgeInsets.symmetric(vertical: 16),
@@ -33,7 +33,7 @@ class CoffeeButton extends StatelessWidget {
         children: [
           Expanded(
             child: TextButton.icon(
-              onPressed: onPress,
+              onPressed: onPressed,
               style: TextButton.styleFrom(
                 elevation: elevation,
                 backgroundColor: corButton ?? ThemeService.of.primaryColor,

@@ -67,7 +67,7 @@ class UnicornPage extends StatelessWidget {
                 padding: const EdgeInsets.all(8.0),
                 child: CoffeeButton(
                   label: titleButton ?? 'OK',
-                  onPress: actionButton ?? () => Navigator.pop(context),
+                  onPressed: actionButton ?? () => Navigator.pop(context),
                 ),
               ),
             ],

@@ -88,7 +88,7 @@ class CoffeeDialogUnicorn extends StatelessWidget {
               child: CoffeeButton(
                 label: 'OK',
                 padding: const EdgeInsets.symmetric(vertical: 10),
-                onPress: () {
+                onPressed: () {
                   Navigator.of(context).pop();
                 },
               ),
