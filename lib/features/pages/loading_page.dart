@@ -19,18 +19,19 @@ class _LoadingPageState extends State<LoadingPage> {
         Image(
           image: CoffeeAssetImage.cats(AssetsCats.runningCircle),
         ),
-        const CoffeeText(
-          text: 'Carregando...',
-          typography: CoffeeTypography.button,
-        ),
-        const SizedBox(
-          height: 20,
-        ),
         LinearProgressIndicator(
           value: widget.animationValue,
           semanticsLabel: 'Linear progress indicator',
-          minHeight: 8,
+          minHeight: 12,
+          borderRadius: ThemeService.of.borderRadius,
           color: ThemeService.of.primaryColor,
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        CoffeeText(
+          text: '${(widget.animationValue * 100).ceil()}%',
+          typography: CoffeeTypography.button,
         ),
       ],
     );
