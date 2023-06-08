@@ -3,40 +3,41 @@ import 'package:flutter/material.dart';
 import 'package:manga_easy_themes/manga_easy_themes.dart';
 
 var _unicorn = AssetsUnicorn.alegre;
-var _middleText = '';
+var _description = '';
 
 class CoffeeDialogUnicorn extends StatelessWidget {
-  final String? middleText;
+  final String? description;
   final String title;
   final List<Widget>? buttons;
 
   const CoffeeDialogUnicorn({
     super.key,
     this.buttons,
-    this.middleText,
+    this.description,
     required this.title,
   });
 
-  void show(BuildContext context) {
-    _middleText = middleText ?? '';
+  void show(BuildContext context, AssetsUnicorn uni) {
+    _description = description ?? '';
+    _unicorn = uni;
     showDialog(context: context, builder: build);
   }
 
   void error(BuildContext context) {
     _unicorn = AssetsUnicorn.sad;
-    _middleText = middleText!.replaceAll('Exception:', '');
+    _description = description!.replaceAll('Exception:', '');
     showDialog(context: context, builder: build);
   }
 
   void sucess(BuildContext context) {
     _unicorn = AssetsUnicorn.alegre;
-    _middleText = middleText ?? '';
+    _description = description ?? '';
     showDialog(context: context, builder: build);
   }
 
   void warning(BuildContext context) {
     _unicorn = AssetsUnicorn.coffee;
-    _middleText = middleText ?? '';
+    _description = description ?? '';
     showDialog(context: context, builder: build);
   }
 
@@ -76,8 +77,8 @@ class CoffeeDialogUnicorn extends StatelessWidget {
           const SizedBox(
             height: 16,
           ),
-          _middleText.isNotEmpty
-              ? CoffeeText(text: _middleText)
+          _description.isNotEmpty
+              ? CoffeeText(text: _description)
               : const SizedBox(),
         ],
       ),
