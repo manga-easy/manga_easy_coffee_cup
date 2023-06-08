@@ -5,7 +5,6 @@ import 'package:manga_easy_themes/manga_easy_themes.dart';
 class CoffeeContainer extends StatelessWidget {
   final Widget child;
   final AlignmentGeometry? alignDescription;
-  final bool isDescription;
   final String? textDescriptionCard;
   final IconData? iconDescriptionCard;
   final BorderRadius? borderRadiusDescriptionCard;
@@ -16,7 +15,6 @@ class CoffeeContainer extends StatelessWidget {
     this.textDescriptionCard,
     this.iconDescriptionCard,
     this.borderRadiusDescriptionCard,
-    this.isDescription = false,
   });
 
   @override
@@ -27,7 +25,7 @@ class CoffeeContainer extends StatelessWidget {
       children: [
         Padding(
           padding:
-              isDescription ? const EdgeInsets.only(top: 15) : EdgeInsets.zero,
+              textDescriptionCard != null ? const EdgeInsets.only(top: 15) : EdgeInsets.zero,
           child: Stack(
             alignment: Alignment.bottomCenter,
             children: [
@@ -58,7 +56,7 @@ class CoffeeContainer extends StatelessWidget {
             ],
           ),
         ),
-        isDescription
+        textDescriptionCard != null 
             ? Container(
                 height: 32,
                 decoration: BoxDecoration(
