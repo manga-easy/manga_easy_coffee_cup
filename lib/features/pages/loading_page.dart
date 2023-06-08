@@ -19,12 +19,14 @@ class _LoadingPageState extends State<LoadingPage> {
         Image(
           image: CoffeeAssetImage.cats(AssetsCats.runningCircle),
         ),
-        LinearProgressIndicator(
-          value: widget.animationValue,
-          semanticsLabel: 'Linear progress indicator',
-          minHeight: 12,
+        ClipRRect(
           borderRadius: ThemeService.of.borderRadius,
-          color: ThemeService.of.primaryColor,
+          child: LinearProgressIndicator(
+            value: widget.animationValue,
+            semanticsLabel: 'Linear progress indicator',
+            minHeight: 12,
+            color: ThemeService.of.primaryColor,
+          ),
         ),
         const SizedBox(
           height: 10,
