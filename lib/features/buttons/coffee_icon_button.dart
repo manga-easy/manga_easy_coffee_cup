@@ -4,10 +4,15 @@ import 'package:manga_easy_themes/manga_easy_themes.dart';
 class CoffeeIconButton extends StatelessWidget {
   final void Function() onTap;
   final IconData? icon;
-  final double? sizeIcon;
+  final double? size;
   final Color? color;
-  const CoffeeIconButton(
-      {super.key, required this.onTap, this.icon, this.sizeIcon, this.color});
+  const CoffeeIconButton({
+    super.key,
+    required this.onTap,
+    this.icon,
+    this.size,
+    this.color,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +24,7 @@ class CoffeeIconButton extends StatelessWidget {
         child: Icon(
           icon,
           color: color ?? ThemeService.of.backgroundIcon,
-          size: sizeIcon ?? 28,
+          size: size ?? 28,
         ),
       ),
     );
