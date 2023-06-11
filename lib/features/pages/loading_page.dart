@@ -16,8 +16,8 @@ class _LoadingPageState extends State<LoadingPage> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Image(
-          image: CoffeeAssetImage.cats(AssetsCats.runningCircle),
+        CoffeeImage.cats(
+          AssetsCats.runningCircle,
         ),
         ClipRRect(
           borderRadius: ThemeService.of.borderRadius,
