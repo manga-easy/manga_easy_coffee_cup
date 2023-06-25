@@ -12,7 +12,6 @@ class CoffeeSearchField extends StatelessWidget {
   final IconData? icon;
   final BorderRadius? borderRadius;
   final Widget? prefixIcon;
-  final bool showBackOnly;
   final String hintText;
 
   const CoffeeSearchField({
@@ -26,7 +25,6 @@ class CoffeeSearchField extends StatelessWidget {
     this.icon,
     this.borderRadius,
     this.prefixIcon,
-    this.showBackOnly = false,
     required this.hintText,
     this.suffixIcon,
   }) : super(key: key);
