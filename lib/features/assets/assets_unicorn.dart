@@ -12,6 +12,7 @@ enum AssetsUnicorn {
   sad('$pathas/uni_sad.png'),
   scooter('$pathas/uni_scooter.png'),
   search('$pathas/uni_search.png'),
+  sucess('$pathas/coffee_sucess.png'),
   star('$pathas/uni_star.png'),
   writing('$pathas/uni_writing.png');
 
