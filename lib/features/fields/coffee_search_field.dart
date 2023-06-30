@@ -4,28 +4,30 @@ import 'package:manga_easy_themes/manga_easy_themes.dart';
 class CoffeeSearchField extends StatelessWidget {
   final void Function()? onTap;
   final TextEditingController? controller;
+  final Widget? suffixIcon;
   final void Function()? onEditingComplete;
   final bool readOnly;
   final void Function(String)? onChanged;
   final bool filled;
   final IconData? icon;
   final BorderRadius? borderRadius;
-  final Widget? suffixIcon;
-  final bool showBackOnly;
+  final Widget? prefixIcon;
+  final String hintText;
 
   const CoffeeSearchField({
-    super.key,
+    Key? key,
+    this.onTap,
     this.controller,
     this.onEditingComplete,
-    this.onTap,
     this.readOnly = false,
     this.onChanged,
     this.filled = true,
-    this.borderRadius,
     this.icon,
+    this.borderRadius,
+    this.prefixIcon,
+    required this.hintText,
     this.suffixIcon,
-    this.showBackOnly = false,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -40,36 +42,25 @@ class CoffeeSearchField extends StatelessWidget {
             controller: controller,
             style: Theme.of(context)
                 .textTheme
-                .titleLarge!
+                .bodyMedium!
                 .copyWith(color: ThemeService.of.backgroundText),
             decoration: InputDecoration(
-              hintText: 'Pesquisar',
-              contentPadding: const EdgeInsets.symmetric(horizontal: 10),
+              hintText: hintText,
+              contentPadding: const EdgeInsets.symmetric(horizontal: 20),
               hoverColor: ThemeService.of.selectColor,
               border: OutlineInputBorder(
-                borderSide: const BorderSide(width: 2.0),
-                borderRadius: borderRadius ?? BorderRadius.circular(25.0),
+                borderSide: BorderSide.none,
+                borderRadius: borderRadius ?? BorderRadius.circular(35.0),
               ),
               enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  width: 2.0,
-                  color: ThemeService.of.backgroundIcon,
-                ),
-                borderRadius: borderRadius ?? BorderRadius.circular(25.0),
+                borderSide: BorderSide.none,
+                borderRadius: borderRadius ?? BorderRadius.circular(35.0),
               ),
               filled: filled,
-              hintStyle: Theme.of(context)
-                  .textTheme
-                  .titleLarge!
-                  .copyWith(color: ThemeService.of.backgroundText),
-              fillColor: ThemeService.of.backgroundColor,
-              prefixIcon: IconButton(
-                onPressed: () => showBackOnly ? Navigator.pop(context) : null,
-                icon: Icon(
-                  showBackOnly ? Icons.arrow_back : Icons.search,
-                  color: ThemeService.of.backgroundIcon,
-                ),
-              ),
+              hintStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                  color: ThemeService.of.backgroundText.withOpacity(.5)),
+              fillColor: ThemeService.of.selectColor,
+              prefixIcon: prefixIcon,
               suffixIcon: suffixIcon,
             ),
           ),
