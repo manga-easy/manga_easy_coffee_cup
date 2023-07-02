@@ -6,6 +6,7 @@ import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 class CoffeeCarousel extends StatelessWidget {
   final List<CarouselDTO> items;
   final void Function(CarouselDTO link) onTap;
+  final bool? autoPlay;
   final double? viewportFraction;
 
   const CoffeeCarousel({
@@ -13,6 +14,7 @@ class CoffeeCarousel extends StatelessWidget {
     required this.items,
     required this.onTap,
     this.viewportFraction,
+    this.autoPlay,
   });
 
   @override
@@ -23,7 +25,7 @@ class CoffeeCarousel extends StatelessWidget {
         height: 140.0,
         showIndicator: false,
         viewportFraction: viewportFraction ?? 0.95,
-        autoPlay: true,
+        autoPlay: autoPlay ?? true,
         autoPlayAnimationDuration: const Duration(milliseconds: 600),
         autoPlayCurve: Curves.easeInOutCubic,
         padEnds: false,
