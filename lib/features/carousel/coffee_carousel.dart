@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:coffee_cup/features/carousel/carousel_dto.dart';
 import 'package:coffee_cup/features/carousel/coffee_banner.dart';
 import 'package:flutter/material.dart';
@@ -11,12 +10,12 @@ class CoffeeCarousel extends StatelessWidget {
   final double? viewportFraction;
 
   const CoffeeCarousel({
-    Key? key,
+    super.key,
     required this.items,
     required this.onTap,
-    required this.autoPlay,
     this.viewportFraction,
-  }) : super(key: key);
+    required this.autoPlay,
+  });
 
   @override
   Widget build(BuildContext context) {
