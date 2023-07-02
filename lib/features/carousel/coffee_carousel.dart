@@ -1,3 +1,4 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:coffee_cup/features/carousel/carousel_dto.dart';
 import 'package:coffee_cup/features/carousel/coffee_banner.dart';
 import 'package:flutter/material.dart';
@@ -6,14 +7,16 @@ import 'package:flutter_carousel_widget/flutter_carousel_widget.dart';
 class CoffeeCarousel extends StatelessWidget {
   final List<CarouselDTO> items;
   final void Function(CarouselDTO link) onTap;
+  final bool autoPlay;
   final double? viewportFraction;
 
   const CoffeeCarousel({
-    super.key,
+    Key? key,
     required this.items,
     required this.onTap,
+    required this.autoPlay,
     this.viewportFraction,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +26,7 @@ class CoffeeCarousel extends StatelessWidget {
         height: 140.0,
         showIndicator: false,
         viewportFraction: viewportFraction ?? 0.95,
-        autoPlay: true,
+        autoPlay: autoPlay,
         autoPlayAnimationDuration: const Duration(milliseconds: 600),
         autoPlayCurve: Curves.easeInOutCubic,
         padEnds: false,
