@@ -17,6 +17,7 @@ class CoffeeField extends StatelessWidget {
   final FontWeight? fontWeight;
   final FontWeight? fontWeightHint;
   final String? initText;
+  final String title;
 
   const CoffeeField(
       {super.key,
@@ -33,7 +34,8 @@ class CoffeeField extends StatelessWidget {
       this.scrollPadding,
       this.fontWeight,
       this.fontWeightHint,
-      this.initText});
+      this.initText,
+      this.title = ''});
 
   @override
   Widget build(BuildContext context) {
@@ -41,10 +43,12 @@ class CoffeeField extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CoffeeText(
-            text: 'Senha atual',
-            color: ThemeService.of.primaryColor,
-          ),
+          title.isEmpty
+              ? const SizedBox.shrink()
+              : CoffeeText(
+                  text: title,
+                  color: ThemeService.of.primaryColor,
+                ),
           const SizedBox(height: 4),
           TextFormField(
             scrollPadding: scrollPadding ?? const EdgeInsets.all(20),
