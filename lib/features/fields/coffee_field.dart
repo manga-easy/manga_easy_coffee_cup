@@ -1,85 +1,80 @@
-import 'package:coffee_cup/coffe_cup.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:manga_easy_themes/manga_easy_themes.dart';
 
+import 'package:coffee_cup/coffe_cup.dart';
+import 'package:coffee_cup/features/fields/styles/field_icon.dart';
+import 'package:coffee_cup/features/fields/styles/field_style.dart';
+import 'package:coffee_cup/features/fields/styles/field_text.dart';
+
 class CoffeeField extends StatelessWidget {
-  final String? hintText;
-  final bool obscureText;
-  final IconData? icone;
   final TextEditingController? controller;
-  final Color? color;
-  final bool lines;
+  final FieldText? fieldText;
+  final FieldStyle? fieldStyle;
+  final FieldIcon? fieldIcon;
   final void Function(String)? onChanged;
-  final Widget? suffixIcon;
   final void Function()? onTap;
   final void Function()? onEditingComplete;
-  final EdgeInsets? scrollPadding;
-  final FontWeight? fontWeight;
-  final FontWeight? fontWeightHint;
-  final String? initText;
-  final String title;
 
-  const CoffeeField(
-      {super.key,
-      this.hintText,
-      this.obscureText = false,
-      this.icone,
-      this.controller,
-      this.color,
-      this.lines = false,
-      this.onChanged,
-      this.suffixIcon,
-      this.onTap,
-      this.onEditingComplete,
-      this.scrollPadding,
-      this.fontWeight,
-      this.fontWeightHint,
-      this.initText,
-      this.title = ''});
+  const CoffeeField({
+    Key? key,
+    this.controller,
+    this.fieldText,
+    this.fieldStyle,
+    this.fieldIcon,
+    this.onChanged,
+    this.onTap,
+    this.onEditingComplete,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CoffeeContainer(
+      sizeWidth: fieldStyle?.fieldWidth,
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          title.isEmpty
-              ? const SizedBox.shrink()
-              : CoffeeText(
-                  text: title,
-                  color: ThemeService.of.primaryColor,
-                ),
-          const SizedBox(height: 4),
+          fieldText!.title != null
+              ? CoffeeText(
+                  text: fieldText!.title!,
+                  color:
+                      fieldText!.titleColor ?? ThemeService.of.backgroundText,
+                )
+              : const SizedBox.shrink(),
           TextFormField(
-            scrollPadding: scrollPadding ?? const EdgeInsets.all(20),
+            scrollPadding:
+                fieldStyle?.scrollPadding ?? const EdgeInsets.all(20),
             onTap: onTap,
             onChanged: onChanged,
             controller: controller,
-            obscureText: obscureText,
+            obscureText: fieldText?.obscure ?? false,
             onEditingComplete: onEditingComplete,
-            minLines: lines ? 10 : null,
-            maxLines: lines ? 200 : 1,
-            cursorColor: color ?? ThemeService.of.backgroundText,
+            minLines: fieldStyle?.minLines ?? 1,
+            maxLines: fieldStyle?.maxLines ?? 1,
+            cursorColor:
+                fieldStyle?.cursorColor ?? ThemeService.of.backgroundText,
             style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                  fontWeight: fontWeight ?? FontWeight.normal,
+                  fontWeight: fieldText!.textWeight ?? FontWeight.normal,
                 ),
-            initialValue: initText,
+            initialValue: fieldText?.initText,
+            textAlignVertical: TextAlignVertical.center,
             decoration: InputDecoration(
               isDense: true,
-              contentPadding: EdgeInsets.zero,
               border: InputBorder.none,
-              suffixIcon: suffixIcon,
-              prefixIcon: icone != null
+              suffixIcon: fieldIcon?.suffixIcon,
+              prefixIcon: fieldIcon?.icon != null
                   ? Icon(
-                      icone,
-                      color: color ?? ThemeService.of.backgroundIcon,
+                      fieldIcon?.icon,
+                      color: fieldIcon?.iconColor ??
+                          ThemeService.of.backgroundIcon,
                     )
                   : null,
-              hintText: hintText,
+              hintText: fieldText?.hintText,
               hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    color: color ??
+                    color: fieldText!.hintColor ??
                         ThemeService.of.backgroundText.withOpacity(0.6),
-                    fontWeight: fontWeightHint ?? FontWeight.normal,
+                    fontWeight: fieldText!.hintWeight ?? FontWeight.normal,
                   ),
             ),
           ),
