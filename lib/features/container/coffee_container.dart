@@ -34,7 +34,7 @@ class CoffeeContainer extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             children: [
               Container(
-                padding: padding ?? const EdgeInsets.fromLTRB(16, 6, 16, 6),
+                padding: padding ?? const EdgeInsets.all(6),
                 width: sizeWidth ?? MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
