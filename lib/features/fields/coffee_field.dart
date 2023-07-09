@@ -30,6 +30,7 @@ class CoffeeField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CoffeeContainer(
+      padding: fieldStyle?.padding,
       sizeWidth: fieldStyle?.fieldWidth,
       child: Column(
         mainAxisSize: MainAxisSize.min,

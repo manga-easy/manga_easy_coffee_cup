@@ -18,7 +18,7 @@ class CoffeeButton extends StatelessWidget {
     this.onPressed,
     this.corButton,
     this.corTexto,
-    this.padding = const EdgeInsets.symmetric(vertical: 16),
+    this.padding = const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
     this.elevation = 12,
     this.margin,
     this.icon,
@@ -26,31 +26,23 @@ class CoffeeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //TODO: Remover row e expanded
     return Padding(
       padding: margin ?? EdgeInsets.zero,
-      child: Row(
-        children: [
-          Expanded(
-            child: TextButton.icon(
-              onPressed: onPressed,
-              style: TextButton.styleFrom(
-                elevation: elevation,
-                backgroundColor: corButton ?? ThemeService.of.primaryColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: ThemeService.of.borderRadius,
-                ),
-                padding: padding,
-              ),
-              icon: icon ?? const SizedBox(),
-              label: CoffeeText(
-                text: label,
-                typography: CoffeeTypography.button,
-                color: corTexto ?? ThemeService.of.primaryText,
-              ),
-            ),
+      child: TextButton(
+        onPressed: onPressed,
+        style: TextButton.styleFrom(
+          elevation: elevation,
+          backgroundColor: corButton ?? ThemeService.of.primaryColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: ThemeService.of.borderRadius,
           ),
-        ],
+          padding: padding,
+        ),
+        child: CoffeeText(
+          text: label,
+          typography: CoffeeTypography.button,
+          color: corTexto ?? ThemeService.of.primaryText,
+        ),
       ),
     );
   }
