@@ -17,6 +17,7 @@ class CoffeeText extends StatelessWidget {
   final Color? color;
   final int? maxLines;
   final TextOverflow? overflow;
+  final double? maskFilter;
 
   const CoffeeText({
     super.key,
@@ -25,6 +26,7 @@ class CoffeeText extends StatelessWidget {
     this.color,
     this.maxLines,
     this.overflow,
+    this.maskFilter,
   });
 
   @override
@@ -34,9 +36,15 @@ class CoffeeText extends StatelessWidget {
       maxLines: maxLines,
       overflow: overflow,
       style: Theme.of(context).textTheme.bodySmall!.copyWith(
-            color: color ?? ThemeService.of.backgroundText,
             fontSize: typography.size,
             fontWeight: typography.isBold ? FontWeight.bold : FontWeight.normal,
+            foreground: Paint()
+              ..style = PaintingStyle.fill
+              ..color = color ?? ThemeService.of.backgroundText
+              ..maskFilter = MaskFilter.blur(
+                BlurStyle.normal,
+                maskFilter ?? 0,
+              ),
           ),
     );
   }
