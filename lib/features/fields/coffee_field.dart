@@ -30,17 +30,18 @@ class CoffeeField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CoffeeContainer(
-      padding: fieldStyle?.padding,
+      padding: fieldText?.title != null
+          ? const EdgeInsets.fromLTRB(16, 10, 16, 8)
+          : const EdgeInsets.fromLTRB(16, 4, 16, 10),
       sizeWidth: fieldStyle?.fieldWidth,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          fieldText!.title != null
+          fieldText?.title != null
               ? CoffeeText(
                   text: fieldText!.title!,
-                  color:
-                      fieldText!.titleColor ?? ThemeService.of.backgroundText,
+                  color: fieldText?.titleColor ?? ThemeService.of.primaryColor,
                 )
               : const SizedBox.shrink(),
           TextFormField(
@@ -56,7 +57,7 @@ class CoffeeField extends StatelessWidget {
             cursorColor:
                 fieldStyle?.cursorColor ?? ThemeService.of.backgroundText,
             style: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                  fontWeight: fieldText!.textWeight ?? FontWeight.normal,
+                  fontWeight: fieldText?.textWeight ?? FontWeight.normal,
                 ),
             initialValue: fieldText?.initText,
             textAlignVertical: TextAlignVertical.center,
@@ -73,9 +74,9 @@ class CoffeeField extends StatelessWidget {
                   : null,
               hintText: fieldText?.hintText,
               hintStyle: Theme.of(context).textTheme.bodyLarge!.copyWith(
-                    color: fieldText!.hintColor ??
+                    color: fieldText?.hintColor ??
                         ThemeService.of.backgroundText.withOpacity(0.6),
-                    fontWeight: fieldText!.hintWeight ?? FontWeight.normal,
+                    fontWeight: fieldText?.hintWeight ?? FontWeight.normal,
                   ),
             ),
           ),

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 class FieldStyle {
   final EdgeInsets? scrollPadding;
-  final EdgeInsetsGeometry? padding;
   final Color? cursorColor;
   final double? fieldWidth;
   final int? minLines;
@@ -11,7 +10,6 @@ class FieldStyle {
 
   FieldStyle({
     this.scrollPadding,
-    this.padding,
     this.cursorColor,
     this.fieldWidth,
     this.minLines,
