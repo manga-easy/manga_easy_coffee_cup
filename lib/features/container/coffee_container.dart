@@ -11,6 +11,7 @@ class CoffeeContainer extends StatelessWidget {
   final Color? colorDescriptionCard;
   final double? sizeWidth;
   final EdgeInsetsGeometry? padding;
+  final EdgeInsetsGeometry? margin;
   const CoffeeContainer({
     super.key,
     required this.child,
@@ -20,6 +21,7 @@ class CoffeeContainer extends StatelessWidget {
     this.borderRadiusDescriptionCard,
     this.sizeWidth,
     this.padding,
+    this.margin,
     this.colorDescriptionCard,
   });
 
@@ -36,6 +38,7 @@ class CoffeeContainer extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             children: [
               Container(
+                margin: margin,
                 padding: padding ?? const EdgeInsets.fromLTRB(16, 14, 16, 16),
                 width: sizeWidth ?? MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
