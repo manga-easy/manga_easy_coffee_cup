@@ -27,80 +27,82 @@ class CoffeeContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: alignDescription ?? Alignment.topRight,
-      children: [
-        Padding(
-          padding: textDescriptionCard != null
-              ? const EdgeInsets.only(top: 15)
-              : EdgeInsets.zero,
-          child: Stack(
-            alignment: Alignment.bottomCenter,
-            children: [
-              Container(
-                margin: margin,
-                padding: padding ?? const EdgeInsets.fromLTRB(16, 14, 16, 16),
-                width: sizeWidth ?? MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(
-                    width: 1.5,
-                    color: ThemeService.of.selectColor,
+    return Padding(
+      padding: margin ?? EdgeInsets.zero,
+      child: Stack(
+        alignment: alignDescription ?? Alignment.topRight,
+        children: [
+          Padding(
+            padding: textDescriptionCard != null
+                ? const EdgeInsets.only(top: 15)
+                : EdgeInsets.zero,
+            child: Stack(
+              alignment: Alignment.bottomCenter,
+              children: [
+                Container(
+                  padding: padding ?? const EdgeInsets.fromLTRB(16, 14, 16, 16),
+                  width: sizeWidth ?? MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(
+                      width: 1.5,
+                      color: ThemeService.of.selectColor,
+                    ),
+                  ),
+                  child: child,
+                ),
+                Container(
+                  height: 1.5,
+                  width: sizeWidth,
+                  alignment: Alignment.bottomCenter,
+                  margin: const EdgeInsets.only(bottom: 5),
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      width: 1.5,
+                      color: ThemeService.of.selectColor,
+                    ),
                   ),
                 ),
-                child: child,
-              ),
-              Container(
-                height: 1.5,
-                width: sizeWidth,
-                alignment: Alignment.bottomCenter,
-                margin: const EdgeInsets.only(bottom: 5),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    width: 1.5,
-                    color: ThemeService.of.selectColor,
-                  ),
-                ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        textDescriptionCard != null
-            ? Container(
-                height: 32,
-                decoration: BoxDecoration(
-                  color: ThemeService.of.primaryColor,
-                  borderRadius: borderRadiusDescriptionCard ??
-                      const BorderRadius.only(
-                        bottomLeft: Radius.circular(20),
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
-                      ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      CoffeeText(
-                        text: textDescriptionCard ?? '',
-                        color:
-                            colorDescriptionCard ?? ThemeService.of.primaryText,
-                      ),
-                      const SizedBox(width: 5),
-                      iconDescriptionCard != null
-                          ? Icon(
-                              iconDescriptionCard,
-                              size: 18,
-                              color: ThemeService.of.primaryText,
-                            )
-                          : const SizedBox.shrink()
-                    ],
+          textDescriptionCard != null
+              ? Container(
+                  height: 32,
+                  decoration: BoxDecoration(
+                    color: ThemeService.of.primaryColor,
+                    borderRadius: borderRadiusDescriptionCard ??
+                        const BorderRadius.only(
+                          bottomLeft: Radius.circular(20),
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
+                        ),
                   ),
-                ),
-              )
-            : const SizedBox.shrink(),
-      ],
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        CoffeeText(
+                          text: textDescriptionCard ?? '',
+                          color: colorDescriptionCard ??
+                              ThemeService.of.primaryText,
+                        ),
+                        const SizedBox(width: 5),
+                        iconDescriptionCard != null
+                            ? Icon(
+                                iconDescriptionCard,
+                                size: 18,
+                                color: ThemeService.of.primaryText,
+                              )
+                            : const SizedBox.shrink()
+                      ],
+                    ),
+                  ),
+                )
+              : const SizedBox.shrink(),
+        ],
+      ),
     );
   }
 }
