@@ -13,6 +13,7 @@ class CoffeeSearchField extends StatelessWidget {
   final BorderRadius? borderRadius;
   final Widget? prefixIcon;
   final String? hintText;
+  final TextInputType? keyboardType;
 
   const CoffeeSearchField({
     Key? key,
@@ -27,6 +28,7 @@ class CoffeeSearchField extends StatelessWidget {
     this.prefixIcon,
     this.hintText,
     this.suffixIcon,
+    this.keyboardType,
   }) : super(key: key);
 
   @override
@@ -40,6 +42,7 @@ class CoffeeSearchField extends StatelessWidget {
             onChanged: onChanged,
             onEditingComplete: onEditingComplete,
             controller: controller,
+            keyboardType: keyboardType,
             style: Theme.of(context)
                 .textTheme
                 .bodyMedium!
