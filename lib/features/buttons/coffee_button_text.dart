@@ -6,6 +6,7 @@ class CoffeeButtonText extends StatelessWidget {
   final void Function()? onPressed;
   final EdgeInsetsGeometry? padding;
   final Color? color;
+  final IconData? prefix;
 
   const CoffeeButtonText({
     super.key,
@@ -13,16 +14,27 @@ class CoffeeButtonText extends StatelessWidget {
     required this.text,
     this.padding,
     this.color,
+    this.prefix,
   });
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      style: TextButton.styleFrom(padding: padding),
-      onPressed: onPressed,
-      child: CoffeeText(
-        text: text,
-        color: color,
+    return GestureDetector(
+      onTap: onPressed,
+      child: Padding(
+        padding: padding ?? EdgeInsets.zero,
+        child: Row(
+          children: [
+            prefix != null
+                ? Icon(prefix, color: color)
+                : const SizedBox.shrink(),
+            prefix != null ? const SizedBox(width: 5) : const SizedBox.shrink(),
+            CoffeeText(
+              text: text,
+              color: color,
+            ),
+          ],
+        ),
       ),
     );
   }

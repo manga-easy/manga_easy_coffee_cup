@@ -47,7 +47,11 @@ class CoffeeSheetBottom extends StatelessWidget {
             const SizedBox(height: 24),
             body,
             const SizedBox(height: 16),
-            button,
+            Row(
+              children: [
+                Expanded(child: button),
+              ],
+            ),
           ],
         ),
       ),

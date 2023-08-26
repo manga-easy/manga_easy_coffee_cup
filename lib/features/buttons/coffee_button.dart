@@ -8,7 +8,7 @@ class CoffeeButton extends StatelessWidget {
   final Color? corButton;
   final Color? corTexto;
   final EdgeInsetsGeometry padding;
-  final double elevation;
+  final double? elevation;
   final EdgeInsets? margin;
   final Widget? icon;
 
@@ -19,7 +19,7 @@ class CoffeeButton extends StatelessWidget {
     this.corButton,
     this.corTexto,
     this.padding = const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-    this.elevation = 12,
+    this.elevation,
     this.margin,
     this.icon,
   });
