@@ -91,14 +91,14 @@ class CoffeeDialogUnicorn extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 onPressedButtonClose != null
-                    ? const SizedBox.shrink()
-                    : CoffeeButtonText(
+                    ? CoffeeButtonText(
                         text: 'Não',
                         onPressed: onPressedButtonClose,
-                      ),
+                      )
+                    : const SizedBox.shrink(),
                 const SizedBox(width: 24),
                 CoffeeButton(
-                  label: onPressedButtonAccept != null ? 'OK' : 'Sim',
+                  label: onPressedButtonAccept != null ? 'Sim' : 'OK',
                   padding:
                       const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
                   onPressed: onPressedButtonAccept ??
