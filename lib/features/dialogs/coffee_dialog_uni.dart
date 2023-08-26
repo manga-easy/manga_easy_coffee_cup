@@ -8,13 +8,15 @@ var _description = '';
 class CoffeeDialogUnicorn extends StatelessWidget {
   final String? description;
   final String title;
-  final List<Widget>? buttons;
+  final void Function()? onPressedButtonClose;
+  final void Function()? onPressedButtonAccept;
 
   const CoffeeDialogUnicorn({
     super.key,
-    this.buttons,
     this.description,
     required this.title,
+    this.onPressedButtonClose,
+    this.onPressedButtonAccept,
   });
 
   void show(BuildContext context, AssetsUnicorn uni) {
@@ -44,57 +46,61 @@ class CoffeeDialogUnicorn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      backgroundColor: ThemeService.of.backgroundColor,
-      shape: RoundedRectangleBorder(
-        borderRadius: ThemeService.of.borderRadius,
-      ),
-      content: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              CoffeeText(
-                text: title,
-                typography: CoffeeTypography.title,
-              ),
-              GestureDetector(
-                onTap: () => Navigator.pop(context),
-                child: Icon(
-                  Icons.close,
-                  color: ThemeService.of.backgroundText,
+        backgroundColor: ThemeService.of.backgroundColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: ThemeService.of.borderRadius,
+        ),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CoffeeText(
+                  text: title,
+                  typography: CoffeeTypography.title,
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 6,
-          ),
-          CoffeeImage.unicorn(
-            _unicorn,
-            height: 150,
-          ),
-          const SizedBox(
-            height: 16,
-          ),
-          _description.isNotEmpty
-              ? CoffeeText(text: _description)
-              : const SizedBox(),
-        ],
-      ),
-      actions: buttons ??
-          [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: CoffeeButton(
-                label: 'OK',
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
+                GestureDetector(
+                  onTap: () => Navigator.pop(context),
+                  child: Icon(
+                    Icons.close,
+                    color: ThemeService.of.backgroundText,
+                  ),
+                ),
+              ],
             ),
+            const SizedBox(
+              height: 6,
+            ),
+            CoffeeImage.unicorn(
+              _unicorn,
+              height: 150,
+            ),
+            const SizedBox(
+              height: 16,
+            ),
+            _description.isNotEmpty
+                ? CoffeeText(text: _description)
+                : const SizedBox(),
           ],
-    );
+        ),
+        actions: [
+          onPressedButtonClose != null
+              ? CoffeeButtonText(
+                  text: 'Não',
+                  onPressed: onPressedButtonClose,
+                )
+              : const SizedBox.shrink(),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: CoffeeButton(
+              label: onPressedButtonAccept != null ? 'Sim' : 'OK',
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              onPressed: onPressedButtonAccept ?? () {
+                      Navigator.of(context).pop();
+                    },
+            ),
+          ),
+        ]);
   }
 }
