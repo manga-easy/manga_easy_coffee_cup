@@ -85,20 +85,28 @@ class CoffeeDialogUnicorn extends StatelessWidget {
           ],
         ),
         actions: [
-          onPressedButtonClose != null
-              ? CoffeeButtonText(
-                  text: 'Não',
-                  onPressed: onPressedButtonClose,
-                )
-              : const SizedBox.shrink(),
           Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: CoffeeButton(
-              label: onPressedButtonAccept != null ? 'Sim' : 'OK',
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              onPressed: onPressedButtonAccept ?? () {
-                      Navigator.of(context).pop();
-                    },
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                onPressedButtonClose != null
+                    ? const SizedBox.shrink()
+                    : CoffeeButtonText(
+                        text: 'Não',
+                        onPressed: onPressedButtonClose,
+                      ),
+                const SizedBox(width: 24),
+                CoffeeButton(
+                  label: onPressedButtonAccept != null ? 'OK' : 'Sim',
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 25),
+                  onPressed: onPressedButtonAccept ??
+                      () {
+                        Navigator.of(context).pop();
+                      },
+                ),
+              ],
             ),
           ),
         ]);
