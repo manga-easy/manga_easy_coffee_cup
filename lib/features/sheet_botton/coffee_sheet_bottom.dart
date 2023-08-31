@@ -8,6 +8,7 @@ class CoffeeSheetBottom extends StatelessWidget {
   final Widget body;
   final Color? backgroundColor;
   final CoffeeButton button;
+  final double? barrierOpacity;
   const CoffeeSheetBottom({
     super.key,
     required this.title,
@@ -15,12 +16,15 @@ class CoffeeSheetBottom extends StatelessWidget {
     this.alignmentTitle,
     this.backgroundColor,
     required this.button,
+    this.barrierOpacity,
   });
 
   void show(BuildContext context) {
     showModalBottomSheet<void>(
       context: context,
       isScrollControlled: true,
+      barrierColor:
+          ThemeService.of.backgroundColor.withOpacity(barrierOpacity ?? 0.3),
       backgroundColor: backgroundColor ?? ThemeService.of.backgroundColor,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
