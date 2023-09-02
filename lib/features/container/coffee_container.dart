@@ -1,28 +1,21 @@
+import 'package:coffee_cup/features/container/styles/description_style.dart';
 import 'package:coffee_cup/features/text/coffee_text.dart';
 import 'package:flutter/material.dart';
 import 'package:manga_easy_themes/manga_easy_themes.dart';
 
 class CoffeeContainer extends StatelessWidget {
   final Widget child;
-  final AlignmentGeometry? alignDescription;
-  final String? textDescriptionCard;
-  final IconData? iconDescriptionCard;
-  final BorderRadius? borderRadiusDescriptionCard;
-  final Color? colorDescriptionCard;
   final double? sizeWidth;
   final EdgeInsetsGeometry? padding;
   final EdgeInsetsGeometry? margin;
+  final DescriptionStyle? descriptionStyle;
   const CoffeeContainer({
     super.key,
     required this.child,
-    this.alignDescription,
-    this.textDescriptionCard,
-    this.iconDescriptionCard,
-    this.borderRadiusDescriptionCard,
     this.sizeWidth,
     this.padding,
     this.margin,
-    this.colorDescriptionCard,
+    this.descriptionStyle,
   });
 
   @override
@@ -30,10 +23,10 @@ class CoffeeContainer extends StatelessWidget {
     return Padding(
       padding: margin ?? EdgeInsets.zero,
       child: Stack(
-        alignment: alignDescription ?? Alignment.topRight,
+        alignment: descriptionStyle?.align  ?? Alignment.topRight,
         children: [
           Padding(
-            padding: textDescriptionCard != null
+            padding: descriptionStyle?.textCard != null
                 ? const EdgeInsets.only(top: 15)
                 : EdgeInsets.zero,
             child: Stack(
@@ -66,12 +59,12 @@ class CoffeeContainer extends StatelessWidget {
               ],
             ),
           ),
-          textDescriptionCard != null
+           descriptionStyle?.textCard != null
               ? Container(
                   height: 32,
                   decoration: BoxDecoration(
-                    color: ThemeService.of.primaryColor,
-                    borderRadius: borderRadiusDescriptionCard ??
+                    color: descriptionStyle?.colorCard ?? ThemeService.of.primaryColor,
+                    borderRadius: descriptionStyle?.borderRadiusCard ??
                         const BorderRadius.only(
                           bottomLeft: Radius.circular(20),
                           topLeft: Radius.circular(20),
@@ -84,16 +77,17 @@ class CoffeeContainer extends StatelessWidget {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         CoffeeText(
-                          text: textDescriptionCard ?? '',
-                          color: colorDescriptionCard ??
+                          text: descriptionStyle?.textCard ?? '',
+                          color: descriptionStyle?.colorTextCard ??
                               ThemeService.of.primaryText,
                         ),
                         const SizedBox(width: 5),
-                        iconDescriptionCard != null
+                        descriptionStyle?.iconCard != null
                             ? Icon(
-                                iconDescriptionCard,
+                                descriptionStyle?.iconCard,
                                 size: 18,
-                                color: ThemeService.of.primaryText,
+                                color: descriptionStyle?.colorTextCard ??
+                                    ThemeService.of.primaryText,
                               )
                             : const SizedBox.shrink()
                       ],
