@@ -7,6 +7,7 @@ class CoffeeButtonText extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final Color? color;
   final IconData? prefix;
+  final IconData? suffix;
 
   const CoffeeButtonText({
     super.key,
@@ -15,6 +16,7 @@ class CoffeeButtonText extends StatelessWidget {
     this.padding,
     this.color,
     this.prefix,
+    this.suffix,
   });
 
   @override
@@ -33,6 +35,8 @@ class CoffeeButtonText extends StatelessWidget {
               text: text,
               color: color,
             ),
+            prefix != null ? const SizedBox(width: 5) : const SizedBox.shrink(),
+            suffix != null ? Icon(suffix, color: color) : const SizedBox.shrink(),
           ],
         ),
       ),
