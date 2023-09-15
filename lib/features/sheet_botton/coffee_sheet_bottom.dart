@@ -24,7 +24,7 @@ class CoffeeSheetBottom extends StatelessWidget {
       context: context,
       isScrollControlled: true,
       barrierColor: hasBarrierOpacity
-          ? Theme.of(context).bottomSheetTheme.modalBarrierColor
+          ? ThemeService.of.backgroundColor.withOpacity(0.3)
           : Colors.transparent,
       backgroundColor: backgroundColor ?? ThemeService.of.backgroundColor,
       shape: const RoundedRectangleBorder(
