@@ -5,20 +5,20 @@ homepage: none
 publish_to: none
 
 environment:
-  sdk: '>=2.19.4 <3.0.0'
+  sdk: '>=3.0.0 <4.0.0'
   flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
 
-  manga_easy_themes:
+  themes:
     git: 
-      url: https://github.com/manga-easy/manga_easy_themes.git
-      ref: 1.0.2
+      url: https://github.com/manga-easy/lib_themes.git
+      ref: v1.0.3
   flutter_rating_bar: ^4.0.1
-  flutter_cache_manager: ^3.3.0
-  flutter_carousel_widget: ^2.0.2
+  flutter_cache_manager: ^3.3.1
+  flutter_carousel_widget: ^2.1.0
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,6 @@
 import 'package:coffee_cup/coffe_cup.dart';
 import 'package:flutter/material.dart';
-import 'package:manga_easy_themes/manga_easy_themes.dart';
+import 'package:themes/manga_easy_themes.dart';
 
 class CoffeeButton extends StatelessWidget {
   final String label;

@@ -1,7 +1,7 @@
 import 'package:coffee_cup/features/container/styles/description_style.dart';
 import 'package:coffee_cup/features/text/coffee_text.dart';
 import 'package:flutter/material.dart';
-import 'package:manga_easy_themes/manga_easy_themes.dart';
+import 'package:themes/manga_easy_themes.dart';
 
 class CoffeeContainer extends StatelessWidget {
   final Widget child;
@@ -23,7 +23,7 @@ class CoffeeContainer extends StatelessWidget {
     return Padding(
       padding: margin ?? EdgeInsets.zero,
       child: Stack(
-        alignment: descriptionStyle?.align  ?? Alignment.topRight,
+        alignment: descriptionStyle?.align ?? Alignment.topRight,
         children: [
           Padding(
             padding: descriptionStyle?.textCard != null
@@ -59,11 +59,12 @@ class CoffeeContainer extends StatelessWidget {
               ],
             ),
           ),
-           descriptionStyle?.textCard != null
+          descriptionStyle?.textCard != null
               ? Container(
                   height: 32,
                   decoration: BoxDecoration(
-                    color: descriptionStyle?.colorCard ?? ThemeService.of.primaryColor,
+                    color: descriptionStyle?.colorCard ??
+                        ThemeService.of.primaryColor,
                     borderRadius: descriptionStyle?.borderRadiusCard ??
                         const BorderRadius.only(
                           bottomLeft: Radius.circular(20),
