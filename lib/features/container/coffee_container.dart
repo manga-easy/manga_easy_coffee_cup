@@ -1,7 +1,7 @@
 import 'package:coffee_cup/features/container/styles/description_style.dart';
 import 'package:coffee_cup/features/text/coffee_text.dart';
 import 'package:flutter/material.dart';
-import 'package:manga_easy_themes/manga_easy_themes.dart';
+import 'package:themes/manga_easy_themes.dart';
 
 class CoffeeContainer extends StatelessWidget {
   final Widget child;

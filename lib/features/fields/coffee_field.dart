@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:manga_easy_themes/manga_easy_themes.dart';
+import 'package:themes/manga_easy_themes.dart';
 
 import 'package:coffee_cup/coffe_cup.dart';
 import 'package:coffee_cup/features/fields/styles/field_icon.dart';

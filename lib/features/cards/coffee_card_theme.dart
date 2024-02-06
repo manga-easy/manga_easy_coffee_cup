@@ -1,6 +1,6 @@
 import 'package:coffee_cup/features/text/coffee_text.dart';
 import 'package:flutter/material.dart';
-import 'package:manga_easy_themes/manga_easy_themes.dart';
+import 'package:themes/manga_easy_themes.dart';
 
 class CoffeeCardTheme extends StatelessWidget {
   final ThemeApp themeApp;

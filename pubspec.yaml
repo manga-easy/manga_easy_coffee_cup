@@ -12,10 +12,10 @@ dependencies:
   flutter:
     sdk: flutter
 
-  manga_easy_themes:
+  themes:
     git: 
       url: https://github.com/manga-easy/manga_easy_themes.git
-      ref: 1.0.2
+      ref: v1.1.0
   flutter_rating_bar: ^4.0.1
   flutter_cache_manager: ^3.3.0
   flutter_carousel_widget: ^2.0.2

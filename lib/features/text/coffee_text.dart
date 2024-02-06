@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:manga_easy_themes/manga_easy_themes.dart';
+import 'package:themes/manga_easy_themes.dart';
 
 enum CoffeeTypography {
   title(true, 24),
