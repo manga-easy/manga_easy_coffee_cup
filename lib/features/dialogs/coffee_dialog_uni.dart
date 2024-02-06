@@ -1,6 +1,6 @@
 import 'package:coffee_cup/coffe_cup.dart';
 import 'package:flutter/material.dart';
-import 'package:manga_easy_themes/manga_easy_themes.dart';
+import 'package:themes/manga_easy_themes.dart';
 
 var _unicorn = AssetsUnicorn.alegre;
 var _description = '';
@@ -19,28 +19,28 @@ class CoffeeDialogUnicorn extends StatelessWidget {
     this.onPressedButtonAccept,
   });
 
-  void show(BuildContext context, AssetsUnicorn uni) {
+  Future<T?> show<T>(BuildContext context, AssetsUnicorn uni) async {
     _description = description ?? '';
     _unicorn = uni;
-    showDialog(context: context, builder: build);
+    return await showDialog<T>(context: context, builder: build);
   }
 
-  void error(BuildContext context) {
+  Future<T?> error<T>(BuildContext context) async {
     _unicorn = AssetsUnicorn.sad;
     _description = description!.replaceAll('Exception:', '');
-    showDialog(context: context, builder: build);
+    return await showDialog<T>(context: context, builder: build);
   }
 
-  void sucess(BuildContext context) {
+  Future<T?> sucess<T>(BuildContext context) async {
     _unicorn = AssetsUnicorn.alegre;
     _description = description ?? '';
-    showDialog(context: context, builder: build);
+    return await showDialog<T>(context: context, builder: build);
   }
 
-  void warning(BuildContext context) {
+  Future<T?> warning<T>(BuildContext context) async {
     _unicorn = AssetsUnicorn.coffee;
     _description = description ?? '';
-    showDialog(context: context, builder: build);
+    return await showDialog<T>(context: context, builder: build);
   }
 
   @override
