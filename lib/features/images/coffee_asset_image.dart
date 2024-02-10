@@ -10,4 +10,6 @@ class CoffeeAssetImage extends AssetImage {
 
   CoffeeAssetImage.state(AssetsState asset)
       : super(asset.path, package: CoffeeImage.package);
+  CoffeeAssetImage.cats(AssetsCats asset)
+      : super(asset.path, package: CoffeeImage.package);
 }
